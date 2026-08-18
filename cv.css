@@ -1,0 +1,505 @@
+/* ==========================================================================
+   CV AMINE ELHAMRI - A4 PRINT & SCREEN OPTIMIZED CSS
+   ========================================================================== */
+
+:root {
+  --primary: #0f172a;
+  --primary-light: #1e293b;
+  --accent: #2563eb;
+  --accent-light: #3b82f6;
+  --accent-gold: #d97706;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --text-dark: #0f172a;
+  --sidebar-bg: #f8fafc;
+  --border: #e2e8f0;
+  --card-bg: #ffffff;
+  --tag-bg: #e2e8f0;
+  --tag-text: #334155;
+  --highlight-bg: #eff6ff;
+  --highlight-border: #bfdbfe;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #0b0f19;
+  color: var(--text-main);
+  line-height: 1.35;
+  font-size: 9.5pt;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   FLOATING ACTION BAR (HIDDEN IN PRINT)
+   ========================================================================== */
+.action-bar {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  gap: 12px;
+  background: #0a0a0a;
+  padding: 8px 16px;
+  border-radius: 0px;
+  box-shadow: 4px 4px 0px #0047ff;
+  border: 1px solid #0a0a0a;
+}
+
+.btn-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 0px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Space Grotesk', sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #f1f5f9;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ==========================================================================
+   A4 SHEET SPECIFICATIONS
+   ========================================================================== */
+.a4-page {
+  width: 210mm;
+  height: 297mm;
+  margin: 60px auto 40px auto;
+  background: #ffffff;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  display: grid;
+  grid-template-columns: 66mm 144mm;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ==========================================================================
+   LEFT SIDEBAR
+   ========================================================================== */
+.cv-sidebar {
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 16mm 6mm 14mm 7mm;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.sidebar-profile {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photo-wrapper {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2.5px solid #2563eb;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+  margin-bottom: 6px;
+  background: #e2e8f0;
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.profile-badge {
+  display: inline-block;
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 7pt;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid #bbf7d0;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.sidebar-section {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sidebar-title {
+  font-size: 8.5pt;
+  font-weight: 800;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  border-bottom: 1.5px solid var(--accent);
+  padding-bottom: 2px;
+  margin-bottom: 2px;
+}
+
+/* Contact Items */
+.contact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 7.8pt;
+  color: #334155;
+}
+
+.contact-list .icon {
+  width: 11px;
+  height: 11px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.break-email {
+  word-break: break-all;
+  font-size: 7.2pt;
+  font-weight: 600;
+}
+
+/* Skills Cloud */
+.skill-group {
+  margin-bottom: 4px;
+}
+
+.skill-category {
+  font-size: 7.4pt;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.skill-category::before {
+  content: "▪";
+  color: var(--accent);
+}
+
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.tag {
+  background: #e2e8f0;
+  color: #1e293b;
+  font-size: 6.8pt;
+  font-weight: 600;
+  padding: 1.5px 5px;
+  border-radius: 3px;
+  border: 1px solid #cbd5e1;
+}
+
+/* Education Items */
+.edu-item {
+  margin-bottom: 5px;
+}
+
+.edu-role {
+  font-size: 8pt;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.edu-field {
+  font-size: 7.2pt;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.edu-school {
+  font-size: 7pt;
+  color: #475569;
+}
+
+.edu-date {
+  font-size: 6.6pt;
+  color: #64748b;
+  font-style: italic;
+}
+
+/* Languages */
+.lang-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 7.4pt;
+  color: #334155;
+  border-bottom: 1px dashed #e2e8f0;
+  padding-bottom: 2px;
+}
+
+.lang-level {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* ==========================================================================
+   RIGHT MAIN CONTENT
+   ========================================================================== */
+.cv-main {
+  padding: 14mm 10mm 12mm 9mm;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Header */
+.main-header {
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 8px;
+}
+
+.name {
+  font-size: 19pt;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+
+.headline {
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--accent);
+  margin-top: 2px;
+}
+
+.subtitle-badge {
+  font-size: 7.8pt;
+  font-weight: 600;
+  color: #475569;
+  margin-top: 2px;
+}
+
+.summary-text {
+  font-size: 7.9pt;
+  color: #334155;
+  line-height: 1.35;
+  margin-top: 5px;
+  background: var(--highlight-bg);
+  border-left: 3px solid var(--accent);
+  padding: 5px 8px;
+  border-radius: 0 4px 4px 0;
+}
+
+/* Section Title */
+.main-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.section-title {
+  font-size: 9.5pt;
+  font-weight: 800;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.title-decor {
+  display: inline-block;
+  width: 14px;
+  height: 3.5px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+/* Project Cards */
+.project-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-left: 3px solid #2563eb;
+  padding: 6px 9px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5px;
+}
+
+.project-card:nth-child(2) { border-left-color: #2563eb; }
+.project-card:nth-child(3) { border-left-color: #059669; }
+.project-card:nth-child(4) { border-left-color: #d97706; }
+.project-card:nth-child(5) { border-left-color: #7c3aed; }
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.project-title-box {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.project-name {
+  font-size: 8.8pt;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.project-type {
+  font-size: 7.2pt;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.project-date {
+  font-size: 6.8pt;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.project-desc {
+  font-size: 7.6pt;
+  color: #334155;
+  font-weight: 500;
+}
+
+.project-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5px;
+  margin-top: 1px;
+}
+
+.project-bullets li {
+  font-size: 7.2pt;
+  color: #334155;
+  padding-left: 9px;
+  position: relative;
+  line-height: 1.3;
+}
+
+.project-bullets li::before {
+  content: "•";
+  color: var(--accent);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.project-stack {
+  font-size: 6.6pt;
+  color: #475569;
+  font-weight: 600;
+  margin-top: 1px;
+  padding-top: 2px;
+  border-top: 1px dashed #f1f5f9;
+}
+
+.project-stack span {
+  color: #1e293b;
+}
+
+/* Experience Mini */
+.exp-mini {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 5px 8px;
+  border-radius: 4px;
+}
+
+.exp-mini-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 7.8pt;
+  color: var(--primary);
+}
+
+.exp-mini-date {
+  font-size: 6.8pt;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.exp-mini-desc {
+  font-size: 7.2pt;
+  color: #475569;
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   PRINT CALIBRATION FOR EXACT 1-PAGE A4
+   ========================================================================== */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .a4-page {
+    width: 210mm !important;
+    height: 297mm !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    page-break-after: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}

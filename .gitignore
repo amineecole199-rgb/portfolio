@@ -1,0 +1,18 @@
+# Operating System Files
+desktop.ini
+Thumbs.db
+.DS_Store
+
+# Environment & Secrets (Safety precaution)
+.env
+.env.*
+*.log
+
+# Editor & IDE directories
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Large raw backups / Internal reports (Uncomment if you want to keep report private)
+# assets/docs/rapport_stage.pdf

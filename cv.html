@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Amine ELHAMRI - Future Ingénieur d'État & Développeur Full-Stack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="cv.css">
+</head>
+<body>
+
+  <!-- Floating Action Bar for Web View -->
+  <div class="no-print action-bar">
+    <a href="index.html" class="btn-action btn-secondary">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+      Retour au Portfolio
+    </a>
+    <button onclick="window.print()" class="btn-action btn-primary">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
+      Imprimer / Enregistrer en PDF (A4)
+    </button>
+  </div>
+
+  <!-- A4 Page Container -->
+  <div class="a4-page">
+    
+    <!-- LEFT SIDEBAR -->
+    <aside class="cv-sidebar">
+      
+      <!-- Profile Photo & Identity -->
+      <div class="sidebar-profile">
+        <div class="photo-wrapper">
+          <img src="assets/img/photo_pro_sq.webp" alt="Amine ELHAMRI" class="profile-photo" onerror="this.src='assets/img/photo_pro.png'">
+        </div>
+        <div class="profile-badge">Disponible en Freelance</div>
+      </div>
+
+      <!-- Contact Info -->
+      <section class="sidebar-section">
+        <h3 class="sidebar-title">Contact Direct</h3>
+        <ul class="contact-list">
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span><strong>06 60 65 96 45</strong></span>
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span class="break-email">amineecole199@gmail.com</span>
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Kénitra / Mehdia, Maroc</span>
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span>Portfolio Web & GitHub</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Competences Techniques -->
+      <section class="sidebar-section">
+        <h3 class="sidebar-title">Stack Technique</h3>
+        
+        <div class="skill-group">
+          <div class="skill-category">Full-Stack & Web Apps</div>
+          <div class="tag-cloud">
+            <span class="tag">Laravel 11/12</span>
+            <span class="tag">PHP 8.3</span>
+            <span class="tag">Vue.js 3</span>
+            <span class="tag">Inertia.js</span>
+            <span class="tag">Tailwind CSS</span>
+            <span class="tag">WebSockets</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">PrestaShop</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-category">Systèmes & Concurrence</div>
+          <div class="tag-cloud">
+            <span class="tag">C / C++</span>
+            <span class="tag">Rust</span>
+            <span class="tag">Python</span>
+            <span class="tag">Linux / Bash</span>
+            <span class="tag">MySQL / Redis</span>
+            <span class="tag">Pessimistic Lock</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-category">Automatisation & IA</div>
+          <div class="tag-cloud">
+            <span class="tag">Web Scraping</span>
+            <span class="tag">WhatsApp API</span>
+            <span class="tag">n8n Workflows</span>
+            <span class="tag">LLM & IA Locale</span>
+            <span class="tag">Audit Données</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-category">Ingénierie & Méthodes</div>
+          <div class="tag-cloud">
+            <span class="tag">Architecture MVC</span>
+            <span class="tag">Tests Pest / PHPUnit</span>
+            <span class="tag">Optimisation Flux</span>
+            <span class="tag">CI/CD Git</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Formation Academique -->
+      <section class="sidebar-section">
+        <h3 class="sidebar-title">Formation</h3>
+        <div class="edu-item">
+          <div class="edu-role">Diplôme d'Ingénieur d'État</div>
+          <div class="edu-field">Génie Informatique & Industriel</div>
+          <div class="edu-school">ENSA Kénitra & ENSA Oujda</div>
+          <div class="edu-date">2024 — Présent</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-role">Statut Étudiant-Entrepreneur</div>
+          <div class="edu-field">Innovation Technologique (SNEE)</div>
+          <div class="edu-school">Ministère Enseignement Supérieur</div>
+          <div class="edu-date">2026 — Présent</div>
+        </div>
+      </section>
+
+      <!-- Langues -->
+      <section class="sidebar-section">
+        <h3 class="sidebar-title">Langues</h3>
+        <div class="lang-row">
+          <span>Français</span>
+          <span class="lang-level">Courant / Pro</span>
+        </div>
+        <div class="lang-row">
+          <span>Arabe</span>
+          <span class="lang-level">Natif</span>
+        </div>
+        <div class="lang-row">
+          <span>Anglais</span>
+          <span class="lang-level">Technique & B2B</span>
+        </div>
+      </section>
+
+    </aside>
+
+    <!-- RIGHT MAIN CONTENT -->
+    <main class="cv-main">
+      
+      <!-- Header / Summary -->
+      <header class="main-header">
+        <div class="header-top">
+          <div>
+            <h1 class="name">AMINE ELHAMRI</h1>
+            <h2 class="headline"> Future Ingénieur d'État en Génie Informatique & Industriel</h2>
+            <div class="subtitle-badge">Développeur Full-Stack • Solutions Métier & SaaS • Systèmes & Automatisation</div>
+          </div>
+        </div>
+        <p class="summary-text">
+          Ingénieur-entrepreneur alliant la <strong>rigueur d'optimisation des processus industriels (ENSA)</strong> à la <strong>vélocité de développement start-up</strong>. Spécialisé dans la conception de plateformes SaaS sur-mesure, de moteurs transactionnels à haute concurrence et d'automatisations de flux de données à fort retour sur investissement.
+        </p>
+      </header>
+
+      <!-- Realisations / Projets Clients -->
+      <section class="main-section">
+        <h3 class="section-title">
+          <span class="title-decor"></span>
+          Projets Phares & Réalisations à Forte Valeur Ajoutée
+        </h3>
+
+        <!-- Projet 1: MzadAuto -->
+        <article class="project-card">
+          <div class="project-header">
+            <div class="project-title-box">
+              <h4 class="project-name">MzadAuto.app</h4>
+              <span class="project-type">SaaS & Marketplace Automobile Marocaine</span>
+            </div>
+            <span class="project-date">2026 — En production</span>
+          </div>
+          <p class="project-desc">
+            Plateforme complète d'enchères et de comparaison automobile pour le marché marocain, pensée pour la performance et le temps réel.
+          </p>
+          <ul class="project-bullets">
+            
+            <li><strong>Enchères en direct WebSockets :</strong> Diffusion temps réel ultra-faible latence (&lt;50ms) via Laravel Reverb et Vue 3 / Inertia.js.</li>
+            <li><strong>Moteur de Fiches & Comparateur :</strong> Base de 500+ modèles avec comparateur multicritères et architecture trilingue (FR/AR/EN).</li>
+            <li><strong>Gestion Sécurisée :</strong> Enregistrement des dépôts, vérification d'identité et génération automatique des bordereaux PDF.</li>
+          </ul>
+          <div class="project-stack">
+            <span>Laravel 12</span> • <span>Vue 3 / Inertia</span> • <span>Tailwind CSS</span> • <span>WebSockets Reverb</span> • <span>MySQL / Redis</span>
+          </div>
+        </article>
+
+        <!-- Projet 2: DRA RSK -->
+        <article class="project-card">
+          <div class="project-header">
+            <div class="project-title-box">
+              <h4 class="project-name">Générateur d'Indemnités & Audit Budgétaire</h4>
+              <span class="project-type">Direction Régionale de l'Agriculture (DRA-RSK)</span>
+            </div>
+            <span class="project-date">Juil 2026 — Mission Clé</span>
+          </div>
+          <p class="project-desc">
+            Application web de dématérialisation et d'optimisation financière des états de déplacements pour l'administration publique.
+          </p>
+          <ul class="project-bullets">
+            <li><strong>Automatisation à 100% :</strong> Calcul automatique des états collectifs de paiement et arrêtés de décompte de repas.</li>
+            <li><strong>Algorithme Calendrier Intelligent :</strong> Détection et exclusion automatique des week-ends, jours fériés et congés des agents.</li>
+            <li><strong>Module d'Audit Automatique :</strong> Analyse et détection préventive de 8 anomalies critiques dans les fichiers RH/Excel.</li>
+            <li><strong>Sécurisation Comptable :</strong> Verrouillage pessimiste & transactions SQL contre les doubles ordonnancements.</li>
+            <li><strong>Exports Certifiés :</strong> Génération multi-formats automatisée (Excel ministériel et PDF officiels).</li>
+          </ul>
+          <div class="project-stack">
+            <span>Laravel</span> • <span>PHP 8.3</span> • <span>Maatwebsite Excel</span> • <span>Pest PHP (Tests)</span> • <span>Architecture MVC</span>
+          </div>
+        </article>
+
+        <!-- Projet 3: Majest Drive & Outreach -->
+        <article class="project-card">
+          <div class="project-header">
+            <div class="project-title-box">
+              <h4 class="project-name">Majest Drive & Moteur d'Acquisition B2B</h4>
+              <span class="project-type">Location Automobile & Growth Engine</span>
+            </div>
+            <span class="project-date">2026</span>
+          </div>
+          <p class="project-desc">
+            Dispositif commercial complet associant une landing page vitrine à fort taux de conversion et un système de prospection automatisé.
+          </p>
+          <ul class="project-bullets">
+            <li><strong>Landing Page Haute Performance :</strong> Interface ultra-rapide (Vite/Vanilla JS) responsive optimisée pour l'acquisition.</li>
+            <li><strong>Pipeline de Scraping B2B :</strong> Collecte et enrichissement automatique de contacts d'agences de location au Maroc.</li>
+            <li><strong>Automatisation Outreach :</strong> Générateur de scripts WhatsApp ciblés et classeurs de suivi commercial automatisés.</li>
+          </ul>
+          <div class="project-stack">
+            <span>Vite</span> • <span>JavaScript ES6+</span> • <span>Scraping Node/Python</span> • <span>WhatsApp API</span> • <span>Google Sheets API</span>
+          </div>
+        </article>
+
+        <!-- Projet 4: PrestaShop & 3andiBricole -->
+        <article class="project-card">
+          <div class="project-header">
+            <div class="project-title-box">
+              <h4 class="project-name">Solutions E-Commerce & Passerelles WhatsApp</h4>
+              <span class="project-type">Boutique PrestaShop & Plateforme 3andiBricole</span>
+            </div>
+            <span class="project-date">2025 — 2026</span>
+          </div>
+          <p class="project-desc">
+            Déploiement e-commerce sur-mesure et création d'une passerelle WhatsApp interactive pour la mise en relation artisans/clients.
+          </p>
+          <ul class="project-bullets">
+            <li><strong>Boutique PrestaShop :</strong> Personnalisation de modules de paiement, panier optimisé et synchronisation du catalogue.</li>
+            <li><strong>WhatsApp Bridge (Baileys) :</strong> Envoi automatisé d'alertes, confirmations de commandes et gestion des chauffeurs.</li>
+          </ul>
+        </article>
+
+      </section>
+
+      <!-- Experience Logistique / Terrain -->
+      <section class="main-section">
+        <h3 class="section-title">
+          <span class="title-decor"></span>
+          Expérience Industrielle & Optimisation des Flux
+        </h3>
+        <div class="exp-mini">
+          <div class="exp-mini-head">
+            <strong>Stage en Gestion Opérationnelle & Supply Chain</strong> — BIM Morocco
+            <span class="exp-mini-date">2 mois</span>
+          </div>
+          <p class="exp-mini-desc">
+            Analyse des flux logistiques en retail, identification des goulets d'étranglement de stocks et modélisation de tableaux de bord de performance opérationnelle.
+          </p>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>
