@@ -1,0 +1,1951 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Maison Safran — Haute Gastronomie Marocaine, Restaurant Étoilé & Traiteur de Prestige pour Mariages et Réceptions Royales au Maroc." />
+  <meta name="keywords" content="restaurant gastronomique Marrakech, traiteur mariage Maroc, traiteur luxe Casablanca, restaurant marocain haut de gamme, catering luxury Morocco, مطعم مغربي فاخر, ممون حفلات المغرب, تنظيم اعراس مراكش" />
+  <title>Maison Safran — Haute Gastronomie & Traiteur de Prestige</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <style>
+    :root {
+      --bg-deep: #090807;
+      --bg-surface: #14110f;
+      --bg-card: #1c1815;
+      --bg-card-hover: #26201c;
+      --gold: #d4a34b;
+      --gold-light: #f5cf7e;
+      --gold-dark: #9c7329;
+      --terracotta: #8a2a2d;
+      --terracotta-light: #ab3a3e;
+      --cream: #f9f5ed;
+      --cream-dim: #d8cfc0;
+      --text-muted: #9e9384;
+      --line: rgba(212, 163, 75, 0.22);
+      --line-subtle: rgba(255, 255, 255, 0.08);
+      --serif: "Playfair Display", Georgia, serif;
+      --display: "Cinzel", Georgia, serif;
+      --sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg-deep);
+      color: var(--cream);
+      font-family: var(--sans);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* RTL Support */
+    html[dir="rtl"] body { direction: rtl; }
+    html[dir="rtl"] .topbar-nav { flex-direction: row-reverse; }
+    html[dir="rtl"] .kicker::before { order: 2; }
+    html[dir="rtl"] .price-box { text-align: left; }
+    html[dir="rtl"] .dish-meta { flex-direction: row-reverse; }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    img { display: block; max-width: 100%; object-fit: cover; }
+
+    .shell { width: min(1360px, calc(100% - 48px)); margin-inline: auto; }
+
+    /* TYPOGRAPHY UTILITIES */
+    .font-display { font-family: var(--display); letter-spacing: 0.08em; }
+    .font-serif { font-family: var(--serif); }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 60%, var(--gold-dark) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .kicker::before { content: ""; width: 24px; height: 1px; background: var(--gold); }
+
+    /* BUTTONS */
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 16px 32px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+      color: #0c0a08;
+      border: 1px solid var(--gold-light);
+      font-family: var(--display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(212, 163, 75, 0.25);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(212, 163, 75, 0.4);
+      background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+    }
+
+    .btn-outline-gold {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 15px 30px;
+      background: transparent;
+      color: var(--gold-light);
+      border: 1px solid var(--line);
+      font-family: var(--display);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+    }
+    .btn-outline-gold:hover {
+      border-color: var(--gold);
+      background: rgba(212, 163, 75, 0.12);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* TOPBAR */
+    .topbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 84px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgba(212, 163, 75, 0.15);
+      background: rgba(9, 8, 7, 0.85);
+      backdrop-filter: blur(16px);
+      transition: all 0.35s ease;
+    }
+    .topbar.scrolled {
+      height: 70px;
+      background: rgba(9, 8, 7, 0.96);
+      border-bottom-color: var(--line);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    }
+    .topbar-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .brand-crest {
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--gold);
+      display: grid;
+      place-items: center;
+      font-family: var(--display);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--gold-light);
+      background: radial-gradient(circle, rgba(212, 163, 75, 0.15), transparent);
+    }
+    .brand-title {
+      font-family: var(--display);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      color: var(--cream);
+    }
+    .brand-sub {
+      display: block;
+      font-size: 8px;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .topbar-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      font-family: var(--display);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .topbar-nav a {
+      color: var(--cream-dim);
+      position: relative;
+      padding-block: 4px;
+      transition: color 0.25s;
+    }
+    .topbar-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 100%; bottom: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: right 0.25s ease;
+    }
+    .topbar-nav a:hover { color: var(--gold-light); }
+    .topbar-nav a:hover::after { right: 0; }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .lang-switcher {
+      display: flex;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,0.4);
+    }
+    .lang-btn {
+      padding: 6px 12px;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: var(--display);
+      font-size: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-btn.active {
+      color: #0c0a08;
+      background: var(--gold);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      width: 40px; height: 40px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--gold);
+      cursor: pointer;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 100px;
+      padding-bottom: 60px;
+      background: #000;
+      overflow: hidden;
+    }
+    .hero-bg-media {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+    .hero-bg-media img {
+      width: 100%;
+      height: 100%;
+      filter: brightness(0.42) contrast(1.15);
+      transform: scale(1.04);
+      animation: heroZoom 20s infinite alternate ease-in-out;
+    }
+    @keyframes heroZoom {
+      from { transform: scale(1.02); }
+      to { transform: scale(1.1); }
+    }
+    .hero-gradient {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 70% 30%, rgba(138, 42, 45, 0.25) 0%, transparent 60%),
+                  linear-gradient(to top, var(--bg-deep) 0%, rgba(9, 8, 7, 0.4) 50%, rgba(9, 8, 7, 0.8) 100%);
+      z-index: 2;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 900px;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(44px, 7vw, 84px);
+      font-weight: 600;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-block: 24px 20px;
+      color: var(--cream);
+    }
+    .hero h1 em {
+      font-style: italic;
+      font-weight: 400;
+      display: block;
+    }
+    .hero-desc {
+      font-size: clamp(16px, 1.8vw, 19px);
+      color: var(--cream-dim);
+      max-width: 680px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+    .hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-bottom: 55px;
+    }
+    .hero-badges {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      padding-top: 30px;
+      border-top: 1px solid var(--line-subtle);
+    }
+    .hero-badge-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-badge-icon {
+      font-size: 20px;
+      color: var(--gold);
+    }
+    .hero-badge-title {
+      font-family: var(--display);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--cream);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .hero-badge-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* SECTION TITLE WRAPPER */
+    .section-title-wrap {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 60px;
+    }
+    .section-title-wrap h2 {
+      font-family: var(--serif);
+      font-size: clamp(34px, 4.5vw, 54px);
+      font-weight: 600;
+      line-height: 1.15;
+      margin-block: 16px 14px;
+      color: var(--cream);
+    }
+    .section-title-wrap p {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* SAVOIR FAIRE / PILLARS */
+    .pillars-section {
+      padding: 120px 0;
+      background: var(--bg-deep);
+      position: relative;
+    }
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .pillar-card {
+      padding: 44px 34px;
+      background: var(--bg-surface);
+      border: 1px solid var(--line-subtle);
+      position: relative;
+      transition: all 0.35s ease;
+    }
+    .pillar-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+    .pillar-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--line);
+      background: var(--bg-card);
+    }
+    .pillar-card:hover::before { opacity: 1; }
+    .pillar-no {
+      font-family: var(--serif);
+      font-size: 28px;
+      font-style: italic;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .pillar-title {
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 14px;
+    }
+    .pillar-desc {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* INTERACTIVE MENU SECTION */
+    .menu-section {
+      padding: 120px 0;
+      background: var(--bg-surface);
+      border-top: 1px solid var(--line-subtle);
+      border-bottom: 1px solid var(--line-subtle);
+    }
+    .menu-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+    .menu-tab-btn {
+      padding: 12px 24px;
+      background: transparent;
+      border: 1px solid var(--line-subtle);
+      color: var(--cream-dim);
+      font-family: var(--display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .menu-tab-btn.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #090807;
+      box-shadow: 0 4px 20px rgba(212, 163, 75, 0.3);
+    }
+
+    .dishes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 32px;
+    }
+    .dish-card {
+      background: var(--bg-card);
+      border: 1px solid var(--line-subtle);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.35s ease;
+    }
+    .dish-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--line);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    }
+    .dish-media {
+      position: relative;
+      height: 270px;
+      overflow: hidden;
+      background: #000;
+    }
+    .dish-media img {
+      width: 100%; height: 100%;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .dish-card:hover .dish-media img { transform: scale(1.06); }
+    .dish-badge {
+      position: absolute;
+      top: 16px; left: 16px;
+      padding: 6px 12px;
+      background: rgba(9, 8, 7, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+      font-family: var(--display);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .dish-body {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .dish-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    .dish-title {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--cream);
+      line-height: 1.25;
+    }
+    .dish-price {
+      font-family: var(--display);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--gold-light);
+      white-space: nowrap;
+    }
+    .dish-desc {
+      color: var(--text-muted);
+      font-size: 13.5px;
+      line-height: 1.65;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+    .dish-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--line-subtle);
+      padding-top: 18px;
+    }
+    .dish-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .dish-tag {
+      font-size: 10px;
+      color: var(--cream-dim);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 3px 8px;
+      border-radius: 2px;
+    }
+    .dish-action-btn {
+      background: transparent;
+      border: none;
+      color: var(--gold);
+      font-family: var(--display);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s;
+    }
+    .dish-action-btn:hover { gap: 10px; color: var(--gold-light); }
+
+    /* BANQUET & WEDDING SIMULATOR */
+    .simulator-section {
+      padding: 130px 0;
+      background: linear-gradient(180deg, var(--bg-deep) 0%, #120f0c 100%);
+      position: relative;
+    }
+    .simulator-grid {
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .sim-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--line);
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+    .sim-step-title {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .sim-step-badge {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: #090807;
+      display: grid;
+      place-items: center;
+      font-family: var(--display);
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .sim-group {
+      margin-bottom: 34px;
+    }
+    
+    .event-type-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .event-type-btn {
+      padding: 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--line-subtle);
+      color: var(--cream);
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .event-type-btn.active {
+      border-color: var(--gold);
+      background: rgba(212, 163, 75, 0.12);
+      box-shadow: 0 0 0 1px var(--gold);
+    }
+    .event-type-name {
+      font-family: var(--serif);
+      font-size: 16px;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .event-type-desc {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .guest-slider-wrap {
+      background: var(--bg-card);
+      padding: 22px;
+      border: 1px solid var(--line-subtle);
+    }
+    .guest-slider-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .guest-count-val {
+      font-family: var(--display);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--gold-light);
+    }
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--gold);
+      cursor: pointer;
+    }
+
+    .package-options {
+      display: grid;
+      gap: 12px;
+    }
+    .package-card {
+      padding: 18px 22px;
+      background: var(--bg-card);
+      border: 1px solid var(--line-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .package-card.active {
+      border-color: var(--gold);
+      background: rgba(212, 163, 75, 0.12);
+    }
+    .pkg-title {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--cream);
+    }
+    .pkg-sub {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .pkg-price {
+      font-family: var(--display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--gold-light);
+      text-align: right;
+    }
+
+    .addon-options {
+      display: grid;
+      gap: 10px;
+    }
+    .addon-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      background: var(--bg-card);
+      border: 1px solid var(--line-subtle);
+      cursor: pointer;
+      font-size: 13px;
+      color: var(--cream-dim);
+      transition: all 0.2s;
+    }
+    .addon-label:hover { border-color: var(--line); }
+    .addon-label input { accent-color: var(--gold); }
+    .addon-price {
+      margin-left: auto;
+      font-family: var(--display);
+      font-size: 12px;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    /* ESTIMATION SUMMARY BOX */
+    .quote-box {
+      position: sticky;
+      top: 100px;
+      background: var(--bg-card);
+      border: 1px solid var(--gold);
+      padding: 36px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+    }
+    .quote-box::after {
+      content: "";
+      position: absolute;
+      inset: 4px;
+      border: 1px solid rgba(212, 163, 75, 0.2);
+      pointer-events: none;
+    }
+    .quote-head {
+      text-align: center;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 24px;
+    }
+    .quote-head h3 {
+      font-family: var(--serif);
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--cream);
+    }
+    .quote-rows {
+      display: grid;
+      gap: 14px;
+      margin-bottom: 28px;
+      font-size: 13.5px;
+    }
+    .quote-row {
+      display: flex;
+      justify-content: space-between;
+      color: var(--cream-dim);
+    }
+    .quote-row span:last-child {
+      font-weight: 600;
+      color: var(--cream);
+    }
+    .quote-total-wrap {
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--line);
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .quote-total-label {
+      font-family: var(--display);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .quote-total-num {
+      font-family: var(--display);
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+    .quote-per-guest {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    /* MODAL RESERVATION */
+    dialog.safran-modal {
+      border: 1px solid var(--gold);
+      background: var(--bg-surface);
+      color: var(--cream);
+      padding: 0;
+      width: min(580px, calc(100% - 32px));
+      margin: auto;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.9);
+    }
+    dialog.safran-modal::backdrop {
+      background: rgba(9, 8, 7, 0.85);
+      backdrop-filter: blur(8px);
+    }
+    .modal-wrap {
+      padding: 40px;
+      position: relative;
+    }
+    .modal-close-btn {
+      position: absolute;
+      top: 20px; right: 20px;
+      width: 36px; height: 36px;
+      background: transparent;
+      border: 1px solid var(--line-subtle);
+      color: var(--cream);
+      font-size: 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .modal-close-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .form-group {
+      display: grid;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+    .form-group label {
+      font-family: var(--display);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--line-subtle);
+      color: var(--cream);
+      font-size: 14px;
+      outline: none;
+      transition: border 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 80px 0 40px;
+      background: #050403;
+      border-top: 1px solid var(--line-subtle);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 60px;
+    }
+    .footer-title {
+      font-family: var(--display);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .footer-links {
+      display: grid;
+      gap: 12px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-bottom {
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* FLOATING ACTIONS */
+    .floating-contact {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .floating-wa-btn {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: #25D366;
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 26px;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+      transition: transform 0.3s;
+    }
+    .floating-wa-btn:hover { transform: scale(1.1); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .pillars-grid { grid-template-columns: 1fr; }
+      .simulator-grid { grid-template-columns: 1fr; }
+      .quote-box { position: static; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .topbar-nav { display: none; }
+      .dishes-grid { grid-template-columns: 1fr; }
+      .event-type-grid { grid-template-columns: 1fr; }
+      .hero-btns { flex-direction: column; }
+      .btn-gold, .btn-outline-gold { width: 100%; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body data-whatsapp="212660659645">
+
+  <!-- TOPBAR -->
+  <header class="topbar" id="topbar">
+    <div class="shell topbar-wrap">
+      <a href="#top" class="brand-logo">
+        <div class="brand-crest">M·S</div>
+        <div>
+          <span class="brand-title">MAISON SAFRAN</span>
+          <span class="brand-sub" data-i18n="brand_sub">Haute Gastronomie & Traiteur</span>
+        </div>
+      </a>
+
+      <nav class="topbar-nav" id="topbarNav">
+        <a href="#savoir-faire" data-i18n="nav_experience">L'Expérience</a>
+        <a href="#carte" data-i18n="nav_carte">La Carte</a>
+        <a href="#simulateur" data-i18n="nav_traiteur">Traiteur & Banquets</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
+      </nav>
+
+      <div class="topbar-actions">
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="ar">عربي</button>
+        </div>
+        <button class="btn-gold" id="openReserveModalBtn" style="padding: 11px 20px; font-size: 10px;">
+          <span data-i18n="btn_reserve_table">Réserver une Table</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="top">
+    <div class="hero-bg-media">
+      <img src="assets/hero.jpg" alt="Maison Safran — Restaurant Gastronomique Palais" />
+    </div>
+    <div class="hero-gradient"></div>
+
+    <div class="shell hero-content">
+      <div class="kicker" data-i18n="hero_kicker">Marrakech · Casablanca · Rabat</div>
+      <h1>
+        <span data-i18n="hero_title_1">L'art du festin marocain,</span>
+        <em class="gold-gradient-text" data-i18n="hero_title_2">élevé à son apogée.</em>
+      </h1>
+      <p class="hero-desc" data-i18n="hero_desc">
+        Une signature culinaire où le raffinement des palais impériaux rencontre l'audace contemporaine. Savourez nos tables d'exception ou concevez votre événement traiteur sur-mesure.
+      </p>
+
+      <div class="hero-btns">
+        <button class="btn-gold" id="heroReserveBtn">
+          <span data-i18n="hero_btn_book">Réserver Votre Table</span>
+          <span>↗</span>
+        </button>
+        <a href="#simulateur" class="btn-outline-gold">
+          <span data-i18n="hero_btn_sim">Simuler un Événement Traiteur</span>
+          <span>↓</span>
+        </a>
+      </div>
+
+      <div class="hero-badges">
+        <div class="hero-badge-item">
+          <span class="hero-badge-icon">⭐</span>
+          <div>
+            <div class="hero-badge-title" data-i18n="badge_1_t">4.9 / 5 Guide Palace</div>
+            <div class="hero-badge-sub" data-i18n="badge_1_s">+350 Avis d'Excellence</div>
+          </div>
+        </div>
+        <div class="hero-badge-item">
+          <span class="hero-badge-icon">🏺</span>
+          <div>
+            <div class="hero-badge-title" data-i18n="badge_2_t">Safran AOP Certifié</div>
+            <div class="hero-badge-sub" data-i18n="badge_2_s">Terroir Pur Taliouine</div>
+          </div>
+        </div>
+        <div class="hero-badge-item">
+          <span class="hero-badge-icon">👑</span>
+          <div>
+            <div class="hero-badge-title" data-i18n="badge_3_t">+120 Mariages Royaux</div>
+            <div class="hero-badge-sub" data-i18n="badge_3_s">Service Traiteur d'Élite</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAVOIR-FAIRE / 3 PILLIERS -->
+  <section class="pillars-section" id="savoir-faire">
+    <div class="shell">
+      <div class="section-title-wrap">
+        <div class="kicker" data-i18n="pillars_kicker">L'Héritage & L'Excellence</div>
+        <h2 data-i18n="pillars_title">Une quête absolue de perfection sensorielle</h2>
+        <p data-i18n="pillars_sub">Chaque mets raconte l'histoire d'un terroir noble, travaillé avec la rigueur de la haute gastronomie internationale.</p>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-no">01.</div>
+          <h3 class="pillar-title" data-i18n="p1_t">Le Terroir Sans Compromis</h3>
+          <p class="pillar-desc" data-i18n="p1_d">
+            Sélection intransigeante : safran de Taliouine cueilli à l'aube, huile d'argan pressée à froid de Taroudant et pêche côtière sauvage d'Essaouira.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-no">02.</div>
+          <h3 class="pillar-title" data-i18n="p2_t">Cuisine d'Auteur Réinventée</h3>
+          <p class="pillar-desc" data-i18n="p2_d">
+            Les cuissons lentes au feu de braise et les réductions au miel sauvage rencontrent les techniques de dressage et la légèreté des grandes tables étoilées.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-no">03.</div>
+          <h3 class="pillar-title" data-i18n="p3_t">L'Art de Recevoir Impérial</h3>
+          <p class="pillar-desc" data-i18n="p3_d">
+            De la vaisselle ciselée en argent et céramique émaillée aux maîtres d'hôtel formés aux standards des palaces : une hospitalité légendaire.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARTE GASTRONOMIQUE INTERACTIVE -->
+  <section class="menu-section" id="carte">
+    <div class="shell">
+      <div class="section-title-wrap">
+        <div class="kicker" data-i18n="menu_kicker">Collection Gastronomique</div>
+        <h2 data-i18n="menu_title">Les Créations Signatures du Chef</h2>
+        <p data-i18n="menu_sub">Une invitation au voyage à travers nos assiettes emblématiques, disponibles au restaurant et pour vos banquets privés.</p>
+      </div>
+
+      <!-- TABS -->
+      <div class="menu-tabs">
+        <button class="menu-tab-btn active" data-cat="all" data-i18n="tab_all">Toute la Collection</button>
+        <button class="menu-tab-btn" data-cat="entrees" data-i18n="tab_entrees">Entrées de Prestige</button>
+        <button class="menu-tab-btn" data-cat="plats" data-i18n="tab_plats">Plats d'Exception</button>
+        <button class="menu-tab-btn" data-cat="desserts" data-i18n="tab_desserts">Haute Pâtisserie</button>
+      </div>
+
+      <!-- GRID OF DISHES -->
+      <div class="dishes-grid" id="dishesGrid">
+        <!-- Dish 1 : Pastilla -->
+        <article class="dish-card" data-category="entrees">
+          <div class="dish-media">
+            <img src="assets/pastilla.jpg" alt="Pastilla Royale aux Fruits de Mer & Pigeon" />
+            <span class="dish-badge" data-i18n="badge_sig">Signature Étoilée</span>
+          </div>
+          <div class="dish-body">
+            <div class="dish-header">
+              <h3 class="dish-title" data-i18n="d1_title">Pastilla Royale d'Or & Amandes</h3>
+              <span class="dish-price">280 MAD</span>
+            </div>
+            <p class="dish-desc" data-i18n="d1_desc">
+              Pâte warka croustillante et translucide, effiloché de pigeonneau ou homard bleu aux épices nobles, voile de cannelle de Ceylan et feuille d'or 24 carats.
+            </p>
+            <div class="dish-footer">
+              <div class="dish-tags">
+                <span class="dish-tag">Fruits de mer / Volaille</span>
+                <span class="dish-tag">Amandes Marcona</span>
+              </div>
+              <button class="dish-action-btn" onclick="openReservationModal('Pastilla Royale')">
+                <span data-i18n="btn_taste">Déguster</span> <span>↗</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Dish 2 : Tajine Souris d'Agneau -->
+        <article class="dish-card" data-category="plats">
+          <div class="dish-media">
+            <img src="assets/tajine.jpg" alt="Tajine de Souris d'Agneau au Safran & Pruneaux Miel" />
+            <span class="dish-badge" data-i18n="badge_pop">Incontournable</span>
+          </div>
+          <div class="dish-body">
+            <div class="dish-header">
+              <h3 class="dish-title" data-i18n="d2_title">Souris d'Agneau Confit au Safran Pur</h3>
+              <span class="dish-price">340 MAD</span>
+            </div>
+            <p class="dish-desc" data-i18n="d2_desc">
+              Cuisson douce de 7 heures, réduction sirupeuse au miel de thym et safran de Taliouine, abricots caramélisés, sésame doré et bouillon perlé.
+            </p>
+            <div class="dish-footer">
+              <div class="dish-tags">
+                <span class="dish-tag">Cuisson 7h</span>
+                <span class="dish-tag">Miel Sauvage</span>
+              </div>
+              <button class="dish-action-btn" onclick="openReservationModal('Souris d'Agneau Confit')">
+                <span data-i18n="btn_taste">Déguster</span> <span>↗</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Dish 3 : Haute Pâtisserie Pastilla au Lait -->
+        <article class="dish-card" data-category="desserts">
+          <div class="dish-media">
+            <img src="assets/dessert.jpg" alt="Mille-Feuille Pastilla au Lait & Pistache" />
+            <span class="dish-badge" data-i18n="badge_chef">Création Chef</span>
+          </div>
+          <div class="dish-body">
+            <div class="dish-header">
+              <h3 class="dish-title" data-i18n="d3_title">Pastilla au Lait & Pistache Royale</h3>
+              <span class="dish-price">160 MAD</span>
+            </div>
+            <p class="dish-desc" data-i18n="d3_desc">
+              Feuillets de warka soufflés, crème diplomate infusée à la fleur d'oranger distillée à la vapeur, praliné croustillant pistache d'Iran et framboises fraîches.
+            </p>
+            <div class="dish-footer">
+              <div class="dish-tags">
+                <span class="dish-tag">Fleur d'Oranger</span>
+                <span class="dish-tag">Pistache Pure</span>
+              </div>
+              <button class="dish-action-btn" onclick="openReservationModal('Pastilla au Lait & Pistache')">
+                <span data-i18n="btn_taste">Déguster</span> <span>↗</span>
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANQUET & WEDDING COST SIMULATOR -->
+  <section class="simulator-section" id="simulateur">
+    <div class="shell">
+      <div class="section-title-wrap">
+        <div class="kicker" data-i18n="sim_kicker">Service Traiteur Événementiel</div>
+        <h2 data-i18n="sim_title">Simulateur de Banquet & Mariage de Prestige</h2>
+        <p data-i18n="sim_sub">Personnalisez votre réception en direct et obtenez une estimation détaillée instantanée avec prise de contact conciergerie sur WhatsApp.</p>
+      </div>
+
+      <div class="simulator-grid">
+        <!-- CONTROLS -->
+        <div class="sim-card">
+          <!-- STEP 1 : TYPE -->
+          <div class="sim-group">
+            <div class="sim-step-title">
+              <span class="sim-step-badge">1</span>
+              <span data-i18n="sim_step1">Type de Réception</span>
+            </div>
+            <div class="event-type-grid">
+              <button class="event-type-btn active" data-type="Mariage Majestueux" data-base="1200">
+                <span class="event-type-name" data-i18n="ev_wedding">Mariage Majestueux</span>
+                <span class="event-type-desc" data-i18n="ev_wedding_d">Cérémonie & Dîner Féerique</span>
+              </button>
+              <button class="event-type-btn" data-type="Gala & Soirée Corporate" data-base="950">
+                <span class="event-type-name" data-i18n="ev_gala">Gala d'Entreprise</span>
+                <span class="event-type-desc" data-i18n="ev_gala_d">Cocktail & Réception VIP</span>
+              </button>
+              <button class="event-type-btn" data-type="Dîner Privé en Villa" data-base="1500">
+                <span class="event-type-name" data-i18n="ev_private">Dîner Privé Palace</span>
+                <span class="event-type-desc" data-i18n="ev_private_d">Chef & Brigade Dédiée</span>
+              </button>
+              <button class="event-type-btn" data-type="Fiançailles & Réception" data-base="850">
+                <span class="event-type-name" data-i18n="ev_eng">Fiançailles & Fêtes</span>
+                <span class="event-type-desc" data-i18n="ev_eng_d">Ambiance Familiale Raffinée</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 2 : GUESTS -->
+          <div class="sim-group">
+            <div class="sim-step-title">
+              <span class="sim-step-badge">2</span>
+              <span data-i18n="sim_step2">Nombre de Convives</span>
+            </div>
+            <div class="guest-slider-wrap">
+              <div class="guest-slider-head">
+                <span style="color: var(--text-muted); font-size: 13px;" data-i18n="guests_label">Invités attendus :</span>
+                <span class="guest-count-val" id="guestCountDisplay">120 invités</span>
+              </div>
+              <input type="range" id="guestSlider" min="20" max="500" value="120" step="5" />
+            </div>
+          </div>
+
+          <!-- STEP 3 : FORMULA -->
+          <div class="sim-group">
+            <div class="sim-step-title">
+              <span class="sim-step-badge">3</span>
+              <span data-i18n="sim_step3">Formule Culinaire & Service</span>
+            </div>
+            <div class="package-options">
+              <div class="package-card" data-pkg="Atlas Prestige" data-price="750">
+                <div>
+                  <div class="pkg-title" data-i18n="pkg1_t">Formule Atlas Prestige</div>
+                  <div class="pkg-sub" data-i18n="pkg1_d">Cocktail d'accueil · Menu 3 services · Service à table standard</div>
+                </div>
+                <div class="pkg-price">750 MAD <small>/ pers</small></div>
+              </div>
+
+              <div class="package-card active" data-pkg="Festin Impérial" data-price="1200">
+                <div>
+                  <div class="pkg-title" data-i18n="pkg2_t">Festin Impérial (Recommandé)</div>
+                  <div class="pkg-sub" data-i18n="pkg2_d">Show-cooking Pastilla · Souris d'Agneau · Bar à desserts royal</div>
+                </div>
+                <div class="pkg-price">1 200 MAD <small>/ pers</small></div>
+              </div>
+
+              <div class="package-card" data-pkg="Signature Royale Palace" data-price="1800">
+                <div>
+                  <div class="pkg-title" data-i18n="pkg3_t">Signature Royale Palace</div>
+                  <div class="pkg-sub" data-i18n="pkg3_d">Méchoui Royal doré · Nectars botaniques · Maître d'hôtel dédié</div>
+                </div>
+                <div class="pkg-price">1 800 MAD <small>/ pers</small></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 4 : ADDONS -->
+          <div class="sim-group" style="margin-bottom: 0;">
+            <div class="sim-step-title">
+              <span class="sim-step-badge">4</span>
+              <span data-i18n="sim_step4">Options & Prestations d'Exception</span>
+            </div>
+            <div class="addon-options">
+              <label class="addon-label">
+                <input type="checkbox" class="addon-check" data-name="Scénographie Florale & Art de la Table" data-cost="15000" checked />
+                <span data-i18n="opt_deco">Scénographie Florale & Art de la Table Or</span>
+                <span class="addon-price">+15 000 MAD</span>
+              </label>
+
+              <label class="addon-label">
+                <input type="checkbox" class="addon-check" data-name="Porteurs Traditionnels & Accueil en Musique" data-cost="8000" checked />
+                <span data-i18n="opt_music">Accueil Traditionnel & Porteurs Impériaux</span>
+                <span class="addon-price">+8 000 MAD</span>
+              </label>
+
+              <label class="addon-label">
+                <input type="checkbox" class="addon-check" data-name="Bar à Thés Rares & Pâtisseries Fines à Volonté" data-cost-per-guest="120" />
+                <span data-i18n="opt_tea">Bar à Thés Rares & Pâtisseries Fines Illimitées</span>
+                <span class="addon-price">+120 MAD <small>/ pers</small></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- ESTIMATION SUMMARY -->
+        <div class="quote-box">
+          <div class="quote-head">
+            <div class="kicker" style="margin-bottom: 8px;" data-i18n="quote_kicker">Devis Immédiat</div>
+            <h3 data-i18n="quote_title">Estimation Personnalisée</h3>
+          </div>
+
+          <div class="quote-rows">
+            <div class="quote-row">
+              <span data-i18n="qr_type">Événement :</span>
+              <span id="summaryEventType">Mariage Majestueux</span>
+            </div>
+            <div class="quote-row">
+              <span data-i18n="qr_guests">Convives :</span>
+              <span id="summaryGuestCount">120 personnes</span>
+            </div>
+            <div class="quote-row">
+              <span data-i18n="qr_pkg">Formule choisie :</span>
+              <span id="summaryPackage">Festin Impérial</span>
+            </div>
+            <div class="quote-row">
+              <span data-i18n="qr_options">Options incluses :</span>
+              <span id="summaryOptionsCount">2 options</span>
+            </div>
+          </div>
+
+          <div class="quote-total-wrap">
+            <div class="quote-total-label" data-i18n="qt_label">Montant Total Estimé</div>
+            <div class="quote-total-num" id="totalQuoteDisplay">167 000 MAD</div>
+            <div class="quote-per-guest" id="perGuestDisplay">Soit env. 1 391 MAD / convive (~128 €)</div>
+          </div>
+
+          <button class="btn-gold" id="sendQuoteWhatsAppBtn" style="width: 100%;">
+            <span data-i18n="btn_wa_quote">Demander ce Devis sur WhatsApp</span>
+            <span>↗</span>
+          </button>
+          
+          <p style="text-align: center; font-size: 11px; color: var(--text-muted); margin-top: 14px;" data-i18n="quote_note">
+            Réponse garantie sous 2h par le Directeur Commercial. Dégustation préalable offerte pour toute réservation de plus de 80 personnes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TABLE RESERVATION MODAL -->
+  <dialog class="safran-modal" id="reservationModal">
+    <div class="modal-wrap">
+      <button class="modal-close-btn" onclick="closeReservationModal()">×</button>
+      
+      <div style="text-align: center; margin-bottom: 24px;">
+        <div class="kicker" style="margin-bottom: 6px;" data-i18n="mod_kicker">Réservation Directe</div>
+        <h3 class="font-serif" style="font-size: 26px; color: var(--cream);" data-i18n="mod_title">Votre Table d'Exception</h3>
+        <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;" data-i18n="mod_sub">Confirmation instantanée par notre maître d'hôtel sur WhatsApp.</p>
+      </div>
+
+      <form id="reservationForm">
+        <div class="form-group">
+          <label data-i18n="mod_name">Nom & Prénom</label>
+          <input type="text" id="resName" placeholder="Ex: M. Jean Dupont" required />
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div class="form-group">
+            <label data-i18n="mod_date">Date</label>
+            <input type="date" id="resDate" required />
+          </div>
+          <div class="form-group">
+            <label data-i18n="mod_guests">Nombre de Convives</label>
+            <select id="resGuests" required>
+              <option value="2 personnes">2 personnes (Intimiste)</option>
+              <option value="3 - 4 personnes">3 à 4 personnes</option>
+              <option value="5 - 8 personnes">5 à 8 personnes (Famille / Amis)</option>
+              <option value="9+ personnes (Salon Privé)">9+ personnes (Salon Privé)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label data-i18n="mod_service">Service Souhaité</label>
+          <select id="resService" required>
+            <option value="Déjeuner Prestige (12h30 - 15h00)">Déjeuner Prestige (12h30 - 15h00)</option>
+            <option value="Dîner Premier Service (19h30 - 21h30)">Dîner Premier Service (19h30 - 21h30)</option>
+            <option value="Dîner Soirée Étoilée (21h30 - 00h00)">Dîner Soirée Étoilée (21h30 - 00h00)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label data-i18n="mod_area">Atmosphère Préférée</label>
+          <select id="resArea">
+            <option value="Patio aux Fontaines & Chandelles">Patio aux Fontaines & Chandelles</option>
+            <option value="Salon Privé Mogador">Salon Privé Mogador</option>
+            <option value="Terrasse Panoramique">Terrasse Panoramique</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label data-i18n="mod_notes">Demandes Particulières (Optionnel)</label>
+          <input type="text" id="resNotes" placeholder="Ex: Anniversaire, table isolée, régime sans gluten..." />
+        </div>
+
+        <button type="submit" class="btn-gold" style="width: 100%; margin-top: 10px;">
+          <span data-i18n="mod_btn_submit">Confirmer la Réservation sur WhatsApp</span>
+          <span>↗</span>
+        </button>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <div class="floating-contact">
+    <a href="#" id="floatingWaLink" target="_blank" rel="noopener" class="floating-wa-btn" title="Contact Conciergerie WhatsApp">
+      💬
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="shell footer-grid">
+      <div>
+        <div class="brand-logo" style="margin-bottom: 16px;">
+          <div class="brand-crest">M·S</div>
+          <div>
+            <span class="brand-title">MAISON SAFRAN</span>
+            <span class="brand-sub">Haute Gastronomie Marocaine</span>
+          </div>
+        </div>
+        <p style="font-size: 13px; color: var(--text-muted); max-width: 340px; line-height: 1.7;" data-i18n="foot_about">
+          Une institution culinaire marocaine dédiée à l'art de recevoir et à la mémoire vivante des grandes traditions royales.
+        </p>
+      </div>
+
+      <div>
+        <div class="footer-title" data-i18n="foot_h_rest">Restaurant</div>
+        <div class="footer-links">
+          <span>Marrakech : Hivernage Palace</span>
+          <span>Casablanca : Triangle d'Or</span>
+          <span>Service continu 12h00 - 00h30</span>
+          <span>Valet de parking privé</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-title" data-i18n="foot_h_cater">Traiteur & Événements</div>
+        <div class="footer-links">
+          <span>Mariages au Maroc & International</span>
+          <span>Banquets Corporate & Sommets</span>
+          <span>Dîners Privés en Résidence</span>
+          <span>Dégustation sur Rendez-vous</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-title" data-i18n="foot_h_concierge">Conciergerie</div>
+        <div class="footer-links">
+          <span>WhatsApp : +212 6 60 65 96 45</span>
+          <span>contact@maisonsafran.ma</span>
+          <span>Service VIP 7j/7</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="shell footer-bottom">
+      <div>© 2026 Maison Safran. Réalisation Démo Portfolio — Amine ELHAMRI.</div>
+      <div style="color: var(--gold);" data-i18n="foot_rights">Excellence · Terroir · Hospitalité</div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT LOGIC -->
+  <script>
+    const $ = (s, scope = document) => scope.querySelector(s);
+    const $$ = (s, scope = document) => [...scope.querySelectorAll(s)];
+
+    const whatsappNumber = document.body.dataset.whatsapp || "212660659645";
+    const waLink = msg => `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
+
+    // Topbar Scroll effect
+    window.addEventListener("scroll", () => {
+      $("#topbar").classList.toggle("scrolled", window.scrollY > 40);
+    }, { passive: true });
+
+    // Multi-Language Translation Dictionaries
+    let currentLang = "fr";
+    const translations = {
+      fr: {
+        brand_sub: "Haute Gastronomie & Traiteur",
+        nav_experience: "L'Expérience",
+        nav_carte: "La Carte",
+        nav_traiteur: "Traiteur & Banquets",
+        nav_contact: "Contact",
+        btn_reserve_table: "Réserver une Table",
+        hero_kicker: "Marrakech · Casablanca · Rabat",
+        hero_title_1: "L'art du festin marocain,",
+        hero_title_2: "élevé à son apogée.",
+        hero_desc: "Une signature culinaire où le raffinement des palais impériaux rencontre l'audace contemporaine. Savourez nos tables d'exception ou concevez votre événement traiteur sur-mesure.",
+        hero_btn_book: "Réserver Votre Table",
+        hero_btn_sim: "Simuler un Événement Traiteur",
+        badge_1_t: "4.9 / 5 Guide Palace",
+        badge_1_s: "+350 Avis d'Excellence",
+        badge_2_t: "Safran AOP Certifié",
+        badge_2_s: "Terroir Pur Taliouine",
+        badge_3_t: "+120 Mariages Royaux",
+        badge_3_s: "Service Traiteur d'Élite",
+        pillars_kicker: "L'Héritage & L'Excellence",
+        pillars_title: "Une quête absolue de perfection sensorielle",
+        pillars_sub: "Chaque mets raconte l'histoire d'un terroir noble, travaillé avec la rigueur de la haute gastronomie internationale.",
+        p1_t: "Le Terroir Sans Compromis",
+        p1_d: "Sélection intransigeante : safran de Taliouine cueilli à l'aube, huile d'argan pressée à froid de Taroudant et pêche côtière sauvage d'Essaouira.",
+        p2_t: "Cuisine d'Auteur Réinventée",
+        p2_d: "Les cuissons lentes au feu de braise et les réductions au miel sauvage rencontrent les techniques de dressage et la légèreté des grandes tables étoilées.",
+        p3_t: "L'Art de Recevoir Impérial",
+        p3_d: "De la vaisselle ciselée en argent et céramique émaillée aux maîtres d'hôtel formés aux standards des palaces : une hospitalité légendaire.",
+        menu_kicker: "Collection Gastronomique",
+        menu_title: "Les Créations Signatures du Chef",
+        menu_sub: "Une invitation au voyage à travers nos assiettes emblématiques, disponibles au restaurant et pour vos banquets privés.",
+        tab_all: "Toute la Collection",
+        tab_entrees: "Entrées de Prestige",
+        tab_plats: "Plats d'Exception",
+        tab_desserts: "Haute Pâtisserie",
+        badge_sig: "Signature Étoilée",
+        badge_pop: "Incontournable",
+        badge_chef: "Création Chef",
+        d1_title: "Pastilla Royale d'Or & Amandes",
+        d1_desc: "Pâte warka croustillante et translucide, effiloché de pigeonneau ou homard bleu aux épices nobles, voile de cannelle de Ceylan et feuille d'or 24 carats.",
+        d2_title: "Souris d'Agneau Confit au Safran Pur",
+        d2_desc: "Cuisson douce de 7 heures, réduction sirupeuse au miel de thym et safran de Taliouine, abricots caramélisés, sésame doré et bouillon perlé.",
+        d3_title: "Pastilla au Lait & Pistache Royale",
+        d3_desc: "Feuillets de warka soufflés, crème diplomate infusée à la fleur d'oranger distillée à la vapeur, praliné croustillant pistache d'Iran et framboises fraîches.",
+        btn_taste: "Déguster",
+        sim_kicker: "Service Traiteur Événementiel",
+        sim_title: "Simulateur de Banquet & Mariage de Prestige",
+        sim_sub: "Personnalisez votre réception en direct et obtenez une estimation détaillée instantanée avec prise de contact conciergerie sur WhatsApp.",
+        sim_step1: "Type de Réception",
+        ev_wedding: "Mariage Majestueux",
+        ev_wedding_d: "Cérémonie & Dîner Féerique",
+        ev_gala: "Gala d'Entreprise",
+        ev_gala_d: "Cocktail & Réception VIP",
+        ev_private: "Dîner Privé Palace",
+        ev_private_d: "Chef & Brigade Dédiée",
+        ev_eng: "Fiançailles & Fêtes",
+        ev_eng_d: "Ambiance Familiale Raffinée",
+        sim_step2: "Nombre de Convives",
+        guests_label: "Invités attendus :",
+        sim_step3: "Formule Culinaire & Service",
+        pkg1_t: "Formule Atlas Prestige",
+        pkg1_d: "Cocktail d'accueil · Menu 3 services · Service à table standard",
+        pkg2_t: "Festin Impérial (Recommandé)",
+        pkg2_d: "Show-cooking Pastilla · Souris d'Agneau · Bar à desserts royal",
+        pkg3_t: "Signature Royale Palace",
+        pkg3_d: "Méchoui Royal doré · Nectars botaniques · Maître d'hôtel dédié",
+        sim_step4: "Options & Prestations d'Exception",
+        opt_deco: "Scénographie Florale & Art de la Table Or",
+        opt_music: "Accueil Traditionnel & Porteurs Impériaux",
+        opt_tea: "Bar à Thés Rares & Pâtisseries Fines Illimitées",
+        quote_kicker: "Devis Immédiat",
+        quote_title: "Estimation Personnalisée",
+        qr_type: "Événement :",
+        qr_guests: "Convives :",
+        qr_pkg: "Formule choisie :",
+        qr_options: "Options incluses :",
+        qt_label: "Montant Total Estimé",
+        quote_note: "Réponse garantie sous 2h par le Directeur Commercial. Dégustation préalable offerte pour toute réservation de plus de 80 personnes.",
+        btn_wa_quote: "Demander ce Devis sur WhatsApp",
+        mod_kicker: "Réservation Directe",
+        mod_title: "Votre Table d'Exception",
+        mod_sub: "Confirmation instantanée par notre maître d'hôtel sur WhatsApp.",
+        mod_name: "Nom & Prénom",
+        mod_date: "Date",
+        mod_guests: "Nombre de Convives",
+        mod_service: "Service Souhaité",
+        mod_area: "Atmosphère Préférée",
+        mod_notes: "Demandes Particulières (Optionnel)",
+        mod_btn_submit: "Confirmer la Réservation sur WhatsApp",
+        foot_about: "Une institution culinaire marocaine dédiée à l'art de recevoir et à la mémoire vivante des grandes traditions royales.",
+        foot_h_rest: "Restaurant",
+        foot_h_cater: "Traiteur & Événements",
+        foot_h_concierge: "Conciergerie",
+        foot_rights: "Excellence · Terroir · Hospitalité"
+      },
+      en: {
+        brand_sub: "Fine Dining & Luxury Catering",
+        nav_experience: "Experience",
+        nav_carte: "The Menu",
+        nav_traiteur: "Catering & Galas",
+        nav_contact: "Contact",
+        btn_reserve_table: "Book a Table",
+        hero_kicker: "Marrakech · Casablanca · Rabat",
+        hero_title_1: "The art of Moroccan feast,",
+        hero_title_2: "elevated to its pinnacle.",
+        hero_desc: "A culinary signature where the sophistication of imperial palaces meets contemporary mastery. Savor our signature tables or craft your bespoke catering event.",
+        hero_btn_book: "Reserve Your Table",
+        hero_btn_sim: "Simulate Catering Event",
+        badge_1_t: "4.9 / 5 Luxury Guide",
+        badge_1_s: "+350 Outstanding Reviews",
+        badge_2_t: "Certified AOP Saffron",
+        badge_2_s: "Pure Taliouine Terroir",
+        badge_3_t: "+120 Royal Weddings",
+        badge_3_s: "Elite Catering Service",
+        pillars_kicker: "Heritage & Excellence",
+        pillars_title: "An absolute quest for sensory perfection",
+        pillars_sub: "Each culinary masterpiece tells the story of noble heritage, prepared with Michelin-grade standards.",
+        p1_t: "Uncompromising Terroir",
+        p1_d: "Dawn-harvested Taliouine saffron, cold-pressed Taroudant pure argan oil and wild Atlantic seafood from Essaouira.",
+        p2_t: "Reinvented Signature Cuisine",
+        p2_d: "Slow woodfire braising and wild mountain honey reductions paired with modern artistic plating.",
+        p3_t: "Imperial Hospitality",
+        p3_d: "From engraved silver tableware and hand-glazed ceramics to palace-trained maître d'hôtels.",
+        menu_kicker: "Gastronomic Collection",
+        menu_title: "The Chef's Signature Masterpieces",
+        menu_sub: "An invitation to journey through our iconic dishes, served at the restaurant and for private banquets.",
+        tab_all: "Full Collection",
+        tab_entrees: "Prestige Starters",
+        tab_plats: "Signature Mains",
+        tab_desserts: "Haute Pâtisserie",
+        badge_sig: "Michelin Signature",
+        badge_pop: "Iconic",
+        badge_chef: "Chef Creation",
+        d1_title: "Royal Golden Pastilla & Almonds",
+        d1_desc: "Crisp translucent warka pastry, tender blue lobster or pigeon with noble spices, Ceylon cinnamon veil and 24-karat gold leaf.",
+        d2_title: "Confit Lamb Shank with Pure Saffron",
+        d2_desc: "7-hour gentle slow braise, wild thyme honey and Taliouine saffron syrup, caramelized apricots and toasted sesame.",
+        d3_title: "Pastilla au Lait & Royal Pistachio",
+        d3_desc: "Airy warka crisps, steam-distilled orange blossom diplomate cream, roasted Iranian pistachio crunch and fresh raspberries.",
+        btn_taste: "Experience",
+        sim_kicker: "Catering & Banquet Engine",
+        sim_title: "Prestige Wedding & Banquet Simulator",
+        sim_sub: "Customize your reception in real time and get an instant detailed quote with direct WhatsApp concierge assistance.",
+        sim_step1: "Event Type",
+        ev_wedding: "Majestic Wedding",
+        ev_wedding_d: "Fairy Tale Reception",
+        ev_gala: "Corporate Gala",
+        ev_gala_d: "VIP Cocktail & Dining",
+        ev_private: "Private Villa Dining",
+        ev_private_d: "Dedicated Chef & Staff",
+        ev_eng: "Engagement Party",
+        ev_eng_d: "Refined Family Celebration",
+        sim_step2: "Guest Count",
+        guests_label: "Expected Guests:",
+        sim_step3: "Menu & Service Level",
+        pkg1_t: "Atlas Prestige Menu",
+        pkg1_d: "Welcome cocktail · 3-course prestige menu · Silver table service",
+        pkg2_t: "Imperial Feast (Recommended)",
+        pkg2_d: "Live Pastilla show cooking · Lamb shank confit · Royal dessert bar",
+        pkg3_t: "Royal Palace Signature",
+        pkg3_d: "Royal golden Mechoui · Botanical mocktails · Dedicated Maître d'",
+        sim_step4: "Exclusive Add-ons & Staging",
+        opt_deco: "Gold Tableware & Couture Floral Design",
+        opt_music: "Traditional Royal Gate Entrance & Music",
+        opt_tea: "Rare Tea & Luxury Pastry Unlimited Bar",
+        quote_kicker: "Instant Estimate",
+        quote_title: "Custom Event Quote",
+        qr_type: "Event:",
+        qr_guests: "Guests:",
+        qr_pkg: "Selected Menu:",
+        qr_options: "Included Add-ons:",
+        qt_label: "Estimated Total Amount",
+        quote_note: "Guaranteed 2h response by our Event Director. Complimentary tasting session offered for bookings of 80+ guests.",
+        btn_wa_quote: "Request This Quote on WhatsApp",
+        mod_kicker: "Direct Table Booking",
+        mod_title: "Your Table of Excellence",
+        mod_sub: "Instant confirmation by our concierge on WhatsApp.",
+        mod_name: "Full Name",
+        mod_date: "Date",
+        mod_guests: "Number of Guests",
+        mod_service: "Preferred Time",
+        mod_area: "Preferred Seating",
+        mod_notes: "Special Requests (Optional)",
+        mod_btn_submit: "Confirm Reservation on WhatsApp",
+        foot_about: "A Moroccan culinary landmark dedicated to the art of hosting and the living memory of imperial traditions.",
+        foot_h_rest: "Restaurant",
+        foot_h_cater: "Catering & Galas",
+        foot_h_concierge: "VIP Concierge",
+        foot_rights: "Excellence · Terroir · Hospitality"
+      },
+      ar: {
+        brand_sub: "فن الطهي المغربي الراقي وتنظيم الحفلات",
+        nav_experience: "التجربة",
+        nav_carte: "قائمة الطعام",
+        nav_traiteur: "تنظيم الحفلات والأعراس",
+        nav_contact: "اتصل بنا",
+        btn_reserve_table: "حجز طاولة",
+        hero_kicker: "مراكش · الدار البيضاء · الرباط",
+        hero_title_1: "فخامة الضيافة المغربية،",
+        hero_title_2: "في أسمى تجلياتها.",
+        hero_desc: "توقيع مميز في الطبخ المغربي يجمع بين عراقة القصور الملكية والابتكار العصري. استمتع بأرقى الأطباق أو صمم مناسبتك مع خدمة تنظيم الحفلات الفاخرة.",
+        hero_btn_book: "احجز طاولتك الآن",
+        hero_btn_sim: "محاكي تكلفة الحفلات والأعراس",
+        badge_1_t: "4.9 / 5 دليل القصور",
+        badge_1_s: "+350 تقييم امتياز",
+        badge_2_t: "زعفران تاليوين الأصيل",
+        badge_2_s: "جودة معتمدة ممتازة",
+        badge_3_t: "+120 عرس ملكي",
+        badge_3_s: "خدمة تموين النخبة",
+        pillars_kicker: "الأصالة والامتياز",
+        pillars_title: "سعي دائم نحو الكمال في الذوق والضيافة",
+        pillars_sub: "كل طبق يحكي قصة التراث المغربي العريق مع معايير الطهي العالمية الرفيعة.",
+        p1_t: "مكونات أصيلة بلا مساومة",
+        p1_d: "زعفران تاليوين المقطوف فجراً، زيت أركان تارودانت الصافي والسمك الطازج من سواحل الصويرة.",
+        p2_t: "إبداع وتجديد في الطهي",
+        p2_d: "طهي بطيء على الفحم مع عسل السدر والزعفران ولمسة تقديم عصرية راقية.",
+        p3_t: "كرم الضيافة الملكية",
+        p3_d: "أواني فضية منقوشة وخزف فاخر مع طاقم خدمة مدرب على أعلى معايير القصور.",
+        menu_kicker: "مجموعة الأطباق الفاخرة",
+        menu_title: "إبداعات الشيف المميزة",
+        menu_sub: "دعوة لرحلة ذوقية فريدة عبر أطباقنا الرمزية في المطعم وحفلاتكم الخاصة.",
+        tab_all: "جميع الأطباق",
+        tab_entrees: "المقبلات الراقية",
+        tab_plats: "الأطباق الرئيسية",
+        tab_desserts: "الحلويات الملكية",
+        badge_sig: "توقيع الشيف المميز",
+        badge_pop: "الأكثر طلباً",
+        badge_chef: "إبداع حصري",
+        d1_title: "بسطيلة ملكية باللوز وورق الذهب",
+        d1_desc: "ورقة مقرمشة شفافة مع لحم الحمام الفاخر أو فواكه البحر، رشة القرفة السيلانية وورق الذهب الخالص.",
+        d2_title: "طاجين ساق الخروف بالزعفران الحر",
+        d2_desc: "طهي بطيء لمدة 7 ساعات مع عسل الزعتر وزعفران تاليوين والمشمش المعسل والسمسم الذهبي.",
+        d3_title: "بسطيلة الحليب بالفستق الملكي",
+        d3_desc: "رقائق ورقة مقرمشة، كريمة ماء الزهر المقطر، فستق إيراني مقرمش وتوت بري طازج.",
+        btn_taste: "تذوق الطبق",
+        sim_kicker: "خدمة تموين وتنظيم الحفلات",
+        sim_title: "محاكي تكلفة الأعراس والحفلات الفاخرة",
+        sim_sub: "اختر تفاصيل مناسبتك مباشرة واحصل على تقدير فوري مع تواصل مباشر عبر واتساب.",
+        sim_step1: "نوع المناسبة",
+        ev_wedding: "عرس ملكي فاخر",
+        ev_wedding_d: "حفل زفاف أسطوري متكامل",
+        ev_gala: "حفل شركات رسمي",
+        ev_gala_d: "كوكتيل واستقبال كبار الشخصيات",
+        ev_private: "عشاء خاص في فيلا",
+        ev_private_d: "شيف وطاقم خدمة خاص",
+        ev_eng: "حفل خطوبة وعقيقة",
+        ev_eng_d: "أجواء عائلية راقية",
+        sim_step2: "عدد الضيوف",
+        guests_label: "الضيوف المتوقعين:",
+        sim_step3: "قائمة الطعام والخدمة",
+        pkg1_t: "باقة أطلس برستيج",
+        pkg1_d: "كوكتيل استقبال · 3 أطباق فاخرة · خدمة راقية",
+        pkg2_t: "الوليمة الإمبراطورية (موصى بها)",
+        pkg2_d: "تحضير بسطيلة حي · طاجين لحم فاخر · بوفيه حلويات",
+        pkg3_t: "التوقيع الملكي للقصور",
+        pkg3_d: "مشوي ملكي مذهب · مشروبات عشبية · رئيس خدم مخصص",
+        sim_step4: "إضافات وديكور استثنائي",
+        opt_deco: "ديكور زهور فاخر وأواني ملكية مذهبة",
+        opt_music: "استقبال تقليدي بالدقة وحاملي الهودج",
+        opt_tea: "شاي مغربي أصيل وحلويات لوز غير محدودة",
+        quote_kicker: "تقدير فوري",
+        quote_title: "عرض السعر المخصص",
+        qr_type: "المناسبة:",
+        qr_guests: "الضيوف:",
+        qr_pkg: "الباقة المختارة:",
+        qr_options: "الخدمات الإضافية:",
+        qt_label: "المبلغ التقديري الإجمالي",
+        quote_note: "رد مضمون خلال ساعتين من الإدارة التجارية. جلسة تذوق مجانية للحجوزات لأكثر من 80 شخص.",
+        btn_wa_quote: "طلب هذا العرض عبر واتساب",
+        mod_kicker: "حجز مباشر",
+        mod_title: "احجز طاولتك الفاخرة",
+        mod_sub: "تأكيد فوري من مسؤول الحجوزات عبر واتساب.",
+        mod_name: "الاسم الكامل",
+        mod_date: "التاريخ",
+        mod_guests: "عدد الضيوف",
+        mod_service: "الفترة المطلوبة",
+        mod_area: "المكان المفضل",
+        mod_notes: "ملاحظات خاصة (اختياري)",
+        mod_btn_submit: "تأكيد الحجز عبر واتساب",
+        foot_about: "مؤسسة طهي مغربية فاخرة مكرسة لفن الضيافة والذاكرة الحية للتقاليد الملكية العريقة.",
+        foot_h_rest: "المطعم",
+        foot_h_cater: "تنظيم الحفلات والأعراس",
+        foot_h_concierge: "خدمة كبار الشخصيات",
+        foot_rights: "الامتياز · الأصالة · الضيافة"
+      }
+    };
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+
+      $$(".lang-btn").forEach(btn => btn.classList.toggle("active", btn.dataset.lang === lang));
+
+      const dict = translations[lang] || translations.fr;
+      $$("[data-i18n]").forEach(el => {
+        const key = el.dataset.i18n;
+        if (dict[key]) el.innerHTML = dict[key];
+      });
+
+      updateSimulator();
+      updateFloatingWa();
+    }
+
+    $$(".lang-btn").forEach(btn => {
+      btn.addEventListener("click", () => applyLanguage(btn.dataset.lang));
+    });
+
+    function updateFloatingWa() {
+      const msg = currentLang === "ar" 
+        ? "السلام عليكم ميزون زعفران، أرغب في الاستفسار عن حجز طاولة أو خدمات تنظيم الحفلات."
+        : "Bonjour Maison Safran, je souhaite me renseigner sur une réservation de table ou un événement traiteur.";
+      $("#floatingWaLink").href = waLink(msg);
+    }
+
+    // MENU FILTERING
+    $$(".menu-tab-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        $$(".menu-tab-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        const cat = btn.dataset.cat;
+        $$(".dish-card").forEach(card => {
+          if (cat === "all" || card.dataset.category === cat) {
+            card.style.display = "flex";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+
+    // BANQUET SIMULATOR STATE & LOGIC
+    let simState = {
+      eventType: "Mariage Majestueux",
+      guests: 120,
+      package: "Festin Impérial",
+      packagePrice: 1200,
+      addons: [
+        { name: "Scénographie Florale & Art de la Table", cost: 15000 },
+        { name: "Porteurs Traditionnels & Accueil en Musique", cost: 8000 }
+      ]
+    };
+
+    const guestSlider = $("#guestSlider");
+    const guestDisplay = $("#guestCountDisplay");
+
+    guestSlider.addEventListener("input", e => {
+      simState.guests = parseInt(e.target.value);
+      guestDisplay.textContent = `${simState.guests} ${currentLang === 'ar' ? 'ضيف' : 'invités'}`;
+      updateSimulator();
+    });
+
+    $$(".event-type-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        $$(".event-type-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        simState.eventType = btn.dataset.type;
+        updateSimulator();
+      });
+    });
+
+    $$(".package-card").forEach(card => {
+      card.addEventListener("click", () => {
+        $$(".package-card").forEach(c => c.classList.remove("active"));
+        card.classList.add("active");
+        simState.package = card.dataset.pkg;
+        simState.packagePrice = parseInt(card.dataset.price);
+        updateSimulator();
+      });
+    });
+
+    $$(".addon-check").forEach(chk => {
+      chk.addEventListener("change", () => {
+        simState.addons = [];
+        $$(".addon-check:checked").forEach(c => {
+          simState.addons.push({
+            name: c.dataset.name,
+            cost: parseInt(c.dataset.cost || 0),
+            costPerGuest: parseInt(c.dataset.costPerGuest || 0)
+          });
+        });
+        updateSimulator();
+      });
+    });
+
+    function updateSimulator() {
+      const isAr = currentLang === "ar";
+      const isEn = currentLang === "en";
+
+      $("#summaryEventType").textContent = simState.eventType;
+      $("#summaryGuestCount").textContent = `${simState.guests} ${isAr ? 'شخص' : 'personnes'}`;
+      $("#summaryPackage").textContent = simState.package;
+      $("#summaryOptionsCount").textContent = `${simState.addons.length} ${isAr ? 'خدمات إضافية' : 'option(s)'}`;
+
+      // Calculate Total
+      let total = simState.guests * simState.packagePrice;
+      simState.addons.forEach(opt => {
+        if (opt.cost) total += opt.cost;
+        if (opt.costPerGuest) total += (opt.costPerGuest * simState.guests);
+      });
+
+      const perGuest = Math.round(total / simState.guests);
+      const perGuestEur = Math.round(perGuest / 10.8);
+
+      $("#totalQuoteDisplay").textContent = `${total.toLocaleString("fr-FR")} MAD`;
+      
+      const perGuestText = isAr 
+        ? `ما يعادل تقريباً ${perGuest.toLocaleString()} درهم / ضيف (~${perGuestEur} €)`
+        : `Soit env. ${perGuest.toLocaleString()} MAD / convive (~${perGuestEur} €)`;
+      $("#perGuestDisplay").textContent = perGuestText;
+
+      // Update WhatsApp Message link
+      const waMsg = isAr
+        ? `السلام عليكم ميزون زعفران، أرغب في طلب هذا العرض المخصص لتنظيم حفل:
+
+👑 نوع المناسبة: ${simState.eventType}
+👥 عدد الضيوف: ${simState.guests} ضيف
+🍽️ الباقة المختارة: ${simState.package} (${simState.packagePrice} درهم/شخص)
+✨ الخدمات الإضافية: ${simState.addons.map(a => a.name).join(', ') || 'بدون إضافات'}
+💰 الميزانية التقديرية: ${total.toLocaleString()} درهم
+
+يرجى تأكيد التوفر وموافاتي بعقد المقترح المالي الكامل. شكراً.`
+        : `Bonjour Maison Safran, je souhaite recevoir une proposition pour cette estimation traiteur :
+
+👑 Événement : ${simState.eventType}
+👥 Nombre de convives : ${simState.guests} personnes
+🍽️ Formule : ${simState.package} (${simState.packagePrice} MAD/pers)
+✨ Options incluses : ${simState.addons.map(a => a.name).join(', ') || 'Aucune'}
+💰 Total estimé : ${total.toLocaleString('fr-FR')} MAD
+
+Pouvez-vous me recontacter pour planifier une dégustation et valider la date ? Merci.`;
+
+      $("#sendQuoteWhatsAppBtn").onclick = () => {
+        window.open(waLink(waMsg), "_blank", "noopener");
+      };
+    }
+
+    // RESERVATION MODAL
+    const modal = $("#reservationModal");
+    function openReservationModal(dishName = "") {
+      if (dishName) {
+        $("#resNotes").value = `Intérêt pour : ${dishName}`;
+      }
+      // Set default tomorrow date
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      $("#resDate").value = tomorrow.toISOString().split("T")[0];
+      modal.showModal();
+    }
+    function closeReservationModal() {
+      modal.close();
+    }
+
+    $("#openReserveModalBtn").addEventListener("click", () => openReservationModal());
+    $("#heroReserveBtn").addEventListener("click", () => openReservationModal());
+
+    modal.addEventListener("click", e => {
+      if (e.target === modal) closeReservationModal();
+    });
+
+    $("#reservationForm").addEventListener("submit", e => {
+      e.preventDefault();
+      const name = $("#resName").value;
+      const date = $("#resDate").value;
+      const guests = $("#resGuests").value;
+      const service = $("#resService").value;
+      const area = $("#resArea").value;
+      const notes = $("#resNotes").value;
+
+      const isAr = currentLang === "ar";
+      const msg = isAr
+        ? `السلام عليكم ميزون زعفران، أرغب في تأكيد حجز طاولة:
+
+👤 الاسم: ${name}
+📅 التاريخ: ${date}
+👥 عدد الضيوف: ${guests}
+⏰ الفترة: ${service}
+📍 الجلسة المفضلة: ${area}
+📝 ملاحظات: ${notes || 'لا توجد'}
+
+يرجى تأكيد الحجز. شكراً.`
+        : `Bonjour Maison Safran, je souhaite effectuer cette demande de réservation de table :
+
+👤 Nom : ${name}
+📅 Date : ${date}
+👥 Convives : ${guests}
+⏰ Service : ${service}
+📍 Espace souhaité : ${area}
+📝 Remarques : ${notes || 'Aucune'}
+
+Pouvez-vous me confirmer la disponibilité ? Merci.`;
+
+      window.open(waLink(msg), "_blank", "noopener");
+      closeReservationModal();
+    });
+
+    // Init
+    applyLanguage("fr");
+  </script>
+</body>
+</html>

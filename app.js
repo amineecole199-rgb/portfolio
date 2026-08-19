@@ -95,6 +95,16 @@ const TRANSLATIONS = {
     p4_f2: "<strong>Passerelle WhatsApp interactive (Baileys) :</strong> notifications automatiques de commande en temps réel.",
     p4_f3: "<strong>Application PWA Mobile-First :</strong> rapidité de chargement optimisée pour le réseau local.",
     p4_status: "● Vidéo & Code Disponibles",
+    p5_chip: "Haute Gastronomie & Traiteur Événementiel",
+    p5_label: "Restauration de Palace & Événements Royaux",
+    p5_title: "Maison Safran — Gastronomie & Moteur Traiteur",
+    p5_desc: "Plateforme vitrine de luxe associant une carte gastronomique interactive, un système de réservation de table en direct et un simulateur de devis pour mariages et banquets avec conversion WhatsApp instantanée.",
+    p5_f1: "<strong>Simulateur de banquet en direct :</strong> calcul dynamique du coût par convive selon les formules et options.",
+    p5_f2: "<strong>Réservation de table interactive :</strong> choix des créneaux, atmosphère et confirmation WhatsApp.",
+    p5_f3: "<strong>Support trilingue complet (FR / EN / AR) :</strong> avec inversion RTL automatique pour le marché du Golfe et local.",
+    p5_status: "● Déployé & Opérationnel",
+    btn_view_live_gastronomie: "Voir Démo Live",
+    btn_live_gastronomie: "Explorer la Démo",
     
     // Skills Section
     sec_skill_num: "02 / Stack & Savoir-Faire",
