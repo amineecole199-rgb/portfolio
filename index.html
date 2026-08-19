@@ -351,10 +351,14 @@
           <div class="project-media-wrap">
             <img src="assets/img/location.png" alt="Majest Drive Location" onerror="this.src='assets/img/photo_pro_web.webp'">
             <div class="project-category-chip" data-i18n="p3_chip">Growth & Automatisation B2B</div>
-            <div class="project-demo-btn-overlay">
+            <div class="project-demo-btn-overlay" style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;">
+              <a href="location/index.html" target="_blank" rel="noopener" class="btn btn-sm btn-primary">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                <span data-i18n="btn_view_live_location">Voir Landing Page</span>
+              </a>
               <button class="btn btn-sm btn-primary" data-demo="majest-details" data-title="Majest Drive — Architecture & Pipeline B2B">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                <span data-i18n="btn_view_pipeline">Voir Pipeline B2B</span>
+                <span data-i18n="btn_view_pipeline">Pipeline B2B</span>
               </button>
             </div>
           </div>
@@ -391,9 +395,15 @@
 
             <div class="project-card-footer">
               <span class="project-status-text" data-i18n="p3_status">● Déployé & Opérationnel</span>
-              <button class="btn btn-sm btn-ghost" data-demo="majest-details" data-title="Majest Drive — Détails du Pipeline">
-                <span data-i18n="btn_pipeline_details">Détails du Pipeline</span>
-              </button>
+              <div style="display: flex; gap: 8px;">
+                <a href="location/index.html" target="_blank" rel="noopener" class="btn btn-sm btn-outline" title="Explorer la Landing Page">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  <span data-i18n="btn_live_location">Voir Landing Page</span>
+                </a>
+                <button class="btn btn-sm btn-ghost" data-demo="majest-details" data-title="Majest Drive — Détails du Pipeline">
+                  <span data-i18n="btn_pipeline_details">Détails</span>
+                </button>
+              </div>
             </div>
           </div>
         </article>

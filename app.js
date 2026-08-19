@@ -81,8 +81,10 @@ const TRANSLATIONS = {
     p3_f2: "<strong>Pipeline de Scraping B2B :</strong> extraction et qualification automatique de contacts d'agences.",
     p3_f3: "<strong>Générateur de campagnes WhatsApp :</strong> scripts ciblés et synchronisation Google Sheets.",
     p3_status: "● Déployé & Opérationnel",
-    btn_view_pipeline: "Voir Pipeline B2B",
-    btn_pipeline_details: "Détails du Pipeline",
+    btn_view_pipeline: "Pipeline B2B",
+    btn_pipeline_details: "Détails",
+    btn_live_location: "Voir Landing Page",
+    btn_view_live_location: "Voir Landing Page",
     
     // Project 4: PrestaShop
     p4_chip: "E-Commerce & WhatsApp Bridge",
@@ -215,8 +217,10 @@ const TRANSLATIONS = {
     p3_f2: "<strong>B2B Web Scraping Pipeline :</strong> automated extraction and enrichment of agency contact information.",
     p3_f3: "<strong>WhatsApp Outreach Generator :</strong> targeted personalized scripts and synchronized Google Sheets tracking.",
     p3_status: "● Deployed & Operational",
-    btn_view_pipeline: "View B2B Pipeline",
-    btn_pipeline_details: "Pipeline Details",
+    btn_view_pipeline: "B2B Pipeline",
+    btn_pipeline_details: "Details",
+    btn_live_location: "View Landing Page",
+    btn_view_live_location: "View Landing Page",
     
     // Project 4: PrestaShop
     p4_chip: "E-Commerce & WhatsApp Bridge",
@@ -586,11 +590,15 @@ function initMediaModal() {
               <h4 style="font-size: 16px; color: var(--c-dark); margin-bottom: 4px;">
                 ${isEn ? 'Showcase Vitrine Page (Vite JS)' : 'Interface Vitrine Vite JS'}
               </h4>
-              <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">
+              <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px;">
                 ${isEn 
                   ? 'Ultra-lightweight responsive landing page designed to maximize conversion rates for client car booking acquisition.' 
                   : 'Page d\'atterrissage responsive ultra-légère conçue pour maximiser le taux de conversion lors des campagnes d\'acquisition.'}
               </p>
+              <a href="location/index.html" target="_blank" rel="noopener" class="btn btn-sm btn-primary" style="display: inline-flex; align-items: center; gap: 6px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                <span>${isEn ? 'Open Live Landing Page ↗' : 'Tester la Landing Page en direct ↗'}</span>
+              </a>
             </div>
           </div>
         `;

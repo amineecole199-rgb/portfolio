@@ -1,0 +1,795 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Majest Drive — location automobile premium et demandes de réservation directes au Maroc." />
+  <meta name="keywords" content="location voiture Maroc, location voiture Casablanca, location voiture Marrakech, location voiture aéroport Maroc, car rental Morocco, luxury car rental Morocco, تأجير السيارات في المغرب, كراء السيارات المغرب, كراء السيارات الدار البيضاء, تأجير سيارات مطار مراكش" />
+  <title>Majest Drive — Le Maroc, en grand</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600;6..96,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --paper: #f3efe7;
+      --paper-2: #e8e0d4;
+      --ink: #171713;
+      --muted: #6e6a62;
+      --oxblood: #761d27;
+      --lime: #d9ff43;
+      --line: rgba(23, 23, 19, .2);
+      --serif: "Bodoni Moda", Georgia, serif;
+      --sans: "Manrope", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--sans);
+      overflow-x: hidden;
+    }
+    html[dir="rtl"] body { direction: rtl; }
+    html[dir="rtl"] .brand, html[dir="rtl"] .header-action, html[dir="rtl"] .hero-links { flex-direction: row-reverse; }
+    html[dir="rtl"] .kicker::before { order: 2; }
+    html[dir="rtl"] .hero h1 .shift { padding-left: 0; padding-right: .55em; }
+    html[dir="rtl"] .service-aside { padding-left: 0; padding-right: 28px; border-left: 0; border-right: 1px solid var(--ink); }
+    html[dir="rtl"] .card-open { right: auto; left: 22px; }
+    html[dir="rtl"] .modal-close { right: auto; left: 18px; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    img { display: block; max-width: 100%; }
+
+    .shell { width: min(1480px, calc(100% - 48px)); margin-inline: auto; }
+    .kicker {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .kicker::before { content: ""; width: 28px; height: 1px; background: currentColor; }
+    .section-no { font-family: var(--serif); font-size: 13px; font-style: italic; }
+
+    .topbar {
+      position: fixed;
+      z-index: 100;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 78px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 0 32px;
+      color: #fff;
+      border-bottom: 1px solid rgba(255,255,255,.25);
+      transition: .3s ease;
+    }
+    .topbar.scrolled { height: 64px; color: var(--ink); background: rgba(243,239,231,.94); backdrop-filter: blur(16px); border-color: var(--line); }
+    .brand { display: flex; align-items: center; gap: 12px; justify-self: start; }
+    .brand-mark {
+      width: 36px;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border: 1px solid currentColor;
+      font-family: var(--serif);
+      font-size: 20px;
+    }
+    .brand-word { font-size: 11px; font-weight: 700; letter-spacing: .24em; }
+    .desktop-nav { display: flex; align-items: center; gap: 30px; font-size: 10px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+    .desktop-nav a { position: relative; }
+    .desktop-nav a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -7px; height: 1px; background: currentColor; transition: right .25s ease; }
+    .desktop-nav a:hover::after { right: 0; }
+    .header-action { justify-self: end; display: flex; align-items: center; gap: 14px; }
+    .lang-switch { display: flex; align-items: center; border: 1px solid currentColor; }
+    .lang-switch button { min-width: 34px; height: 32px; padding: 0 8px; border: 0; color: inherit; background: transparent; font-size: 9px; font-weight: 700; cursor: pointer; }
+    .lang-switch button.active { color: var(--ink); background: var(--paper); }
+    .topbar.scrolled .lang-switch button.active { color: #fff; background: var(--ink); }
+    .header-cta {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      padding: 0 17px;
+      color: var(--ink);
+      background: var(--lime);
+      border: 1px solid var(--ink);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      box-shadow: 3px 3px 0 var(--ink);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .header-cta:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--ink); }
+    .menu-toggle { display: none; width: 42px; height: 42px; border: 1px solid currentColor; background: transparent; color: inherit; }
+    .menu-toggle span { display: block; width: 18px; height: 1px; margin: 5px auto; background: currentColor; transition: .2s; }
+    .mobile-nav { display: none; }
+
+    .hero {
+      min-height: 850px;
+      height: 100vh;
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(380px, .92fr);
+      color: white;
+      background: #11110f;
+    }
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 140px clamp(32px, 6vw, 100px) 80px;
+    }
+    .hero-copy::after { content: ""; position: absolute; right: 0; top: 120px; bottom: 80px; width: 1px; background: rgba(255,255,255,.18); }
+    .hero-copy .kicker { color: var(--lime); margin-bottom: 38px; }
+    .hero h1 {
+      max-width: 860px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(72px, 9vw, 154px);
+      font-weight: 500;
+      line-height: .79;
+      letter-spacing: -.075em;
+    }
+    .hero h1 .shift { display: block; padding-left: .55em; font-style: italic; color: var(--paper-2); }
+    .hero-bottom { display: grid; grid-template-columns: 1fr auto; gap: 36px; align-items: end; margin-top: 52px; }
+    .hero-bottom p { max-width: 480px; margin: 0; color: rgba(255,255,255,.64); font-size: 15px; line-height: 1.75; }
+    .editorial-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 8px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      transition: gap .25s ease;
+    }
+    .editorial-link:hover { gap: 28px; }
+    .hero-links { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+
+    .hero-visual { position: relative; overflow: hidden; }
+    .hero-visual > img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.66) contrast(1.06); }
+    .hero-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.6)); }
+    .hero-stamp {
+      position: absolute;
+      z-index: 2;
+      top: 120px;
+      right: 30px;
+      width: 122px;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.55);
+      border-radius: 50%;
+      text-align: center;
+      font-family: var(--serif);
+      font-size: 13px;
+      line-height: 1.3;
+      transform: rotate(8deg);
+    }
+    .availability-panel {
+      position: absolute;
+      z-index: 3;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--paper);
+      color: var(--ink);
+      border-top: 1px solid var(--ink);
+    }
+    .availability-panel > div { padding: 28px; border-right: 1px solid var(--line); }
+    .availability-panel small { display: block; margin-bottom: 8px; font-size: 9px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+    .availability-panel strong { font-family: var(--serif); font-size: 24px; font-weight: 600; }
+
+    .collection-title h2, .service-title h2, .final-cta h2 {
+      margin: 26px 0 22px;
+      font-family: var(--serif);
+      font-size: clamp(46px, 6vw, 92px);
+      font-weight: 500;
+      line-height: .94;
+      letter-spacing: -.055em;
+    }
+    .collection-title h2 em, .service-title h2 em, .final-cta h2 em { color: var(--oxblood); font-weight: 500; }
+    .primary-btn {
+      min-height: 56px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 25px;
+      padding: 0 24px;
+      border: 1px solid var(--lime);
+      color: var(--ink);
+      background: var(--lime);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform .25s ease, background .25s ease;
+    }
+    .primary-btn:hover { transform: translateY(-3px); background: #e4ff79; }
+
+    .collection { padding: 110px 0 130px; background: #ded6ca; }
+    .collection-head { display: grid; grid-template-columns: 8fr 4fr; gap: 40px; align-items: end; }
+    .collection-title h2 { max-width: 900px; }
+    .collection-note { padding-bottom: 18px; color: var(--muted); font-size: 13px; line-height: 1.75; }
+    .filter-row { display: flex; justify-content: space-between; gap: 30px; align-items: center; margin: 60px 0 30px; padding: 18px 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--line); }
+    .filters { display: flex; gap: 8px; flex-wrap: wrap; }
+    .filters button { padding: 8px 13px; border: 1px solid transparent; background: transparent; color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; }
+    .filters button.active { color: #fff; background: var(--oxblood); }
+    #resultCount { color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .fleet-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
+    .fleet-card { grid-column: span 5; position: relative; display: flex; flex-direction: column; min-height: 520px; padding: 22px; background: var(--paper); border: 1px solid var(--ink); cursor: pointer; transition: transform .3s ease, box-shadow .3s ease; }
+    .fleet-card:nth-child(4n + 1), .fleet-card:nth-child(4n + 4) { grid-column: span 7; }
+    .fleet-card:hover { transform: translateY(-5px); box-shadow: 7px 7px 0 var(--oxblood); }
+    .card-top { display: flex; justify-content: space-between; gap: 12px; align-items: start; }
+    .card-index { font-family: var(--serif); font-style: italic; font-size: 14px; }
+    .card-badge { padding: 6px 9px; border: 1px solid var(--line); color: var(--oxblood); font-size: 8px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .car-frame { height: 285px; margin: 24px -22px 22px; overflow: hidden; background: #c9c1b5; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .car-frame img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.75); transition: transform .55s ease, filter .55s ease; }
+    .fleet-card:hover .car-frame img { transform: scale(1.04); filter: saturate(1); }
+    .fleet-card h3 { margin: 0 0 12px; font-family: var(--serif); font-size: clamp(27px, 3vw, 43px); font-weight: 600; line-height: 1; letter-spacing: -.04em; }
+    .card-meta { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: auto; padding-top: 18px; color: var(--muted); border-top: 1px solid var(--line); font-size: 10px; }
+    .card-open { position: absolute; right: 22px; bottom: 18px; font-size: 22px; color: var(--oxblood); transition: transform .25s ease; }
+    .fleet-card:hover .card-open { transform: translate(3px,-3px); }
+    .card-reserve { align-self: flex-start; margin-top: 18px; padding: 10px 14px; color: #fff; background: var(--oxblood); border: 1px solid var(--oxblood); font-size: 9px; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; cursor: pointer; transition: transform .2s ease; }
+    .card-reserve:hover { transform: translateY(-2px); }
+
+    .services { padding: 120px 0; }
+    .service-head { display: grid; grid-template-columns: 7fr 5fr; gap: 50px; align-items: end; }
+    .service-title h2 { max-width: 850px; }
+    .service-aside { padding: 0 0 25px 28px; border-left: 1px solid var(--ink); color: var(--muted); font-size: 14px; line-height: 1.75; }
+    .service-grid { display: grid; grid-template-columns: 5fr 3fr 4fr; margin-top: 65px; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+    .service { min-height: 290px; padding: 28px; border-right: 1px solid var(--line); }
+    .service:nth-child(2) { margin-top: 70px; border-top: 1px solid var(--line); }
+    .service:last-child { border-right: 0; }
+    .service b { display: block; color: var(--oxblood); font-family: var(--serif); font-size: 17px; font-style: italic; }
+    .service h3 { margin: 70px 0 12px; font-family: var(--serif); font-size: 30px; line-height: 1; }
+    .service p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+
+    .final-cta { padding: 100px 0; color: white; background: var(--oxblood); }
+    .final-wrap { display: grid; grid-template-columns: 8fr 4fr; gap: 60px; align-items: end; }
+    .final-cta .kicker { color: var(--lime); }
+    .final-cta h2 { max-width: 950px; margin-bottom: 0; color: white; }
+    .final-cta h2 em { color: var(--lime); }
+    .final-action { padding-bottom: 12px; }
+    .final-action p { color: rgba(255,255,255,.7); font-size: 13px; line-height: 1.7; }
+    .final-action .primary-btn { width: 100%; margin-top: 18px; }
+
+    footer { padding: 42px 0; background: #11110f; color: #fff; }
+    .footer-grid { display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: end; }
+    .footer-grid p { margin: 16px 0 0; color: rgba(255,255,255,.48); font-size: 11px; }
+    .footer-links { display: flex; gap: 24px; font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .seo-keywords { grid-column: 1 / -1; margin: 12px 0 0; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.15); color: rgba(255,255,255,.35); font-size: 10px; line-height: 1.8; }
+
+    dialog { border: 0; padding: 0; }
+    .car-modal {
+      width: min(680px, calc(100% - 24px));
+      max-width: calc(100vw - 30px);
+      max-height: 92vh;
+      overflow-x: hidden;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      touch-action: pan-y;
+      scrollbar-gutter: stable;
+      border-radius: 30px;
+      background: #fff;
+      color: var(--ink);
+      box-shadow: 0 30px 100px rgba(0,0,0,.45);
+    }
+    .car-modal::-webkit-scrollbar { width: 8px; }
+    .car-modal::-webkit-scrollbar-track { background: var(--paper-2); }
+    .car-modal::-webkit-scrollbar-thumb { background: var(--oxblood); border: 2px solid var(--paper-2); }
+    .car-modal::backdrop { background: rgba(17,17,15,.8); backdrop-filter: blur(6px); }
+    .modal-grid { display: block; width: 100%; min-width: 0; }
+    .modal-image { position: relative; min-width: 0; height: 220px; overflow: hidden; background: #cbc3b8; }
+    .modal-image::after { content:""; position:absolute; inset:35% 0 0; background:linear-gradient(transparent, rgba(0,0,0,.72)); pointer-events:none; }
+    .modal-image img { width: 100%; height: 100%; object-fit: cover; }
+    .modal-copy { position: static; min-width: 0; overflow-wrap: anywhere; }
+    .modal-close { position: absolute; z-index:3; top: 16px; right: 16px; width: 40px; height: 40px; border: 0; border-radius:50%; color:#fff; background:rgba(17,17,15,.56); font-size:22px; cursor: pointer; }
+    .modal-identity { position:absolute; z-index:2; left:28px; right:28px; bottom:22px; color:#fff; }
+    .modal-badge { display:inline-block; margin-bottom:8px; padding:5px 8px; border:1px solid rgba(255,255,255,.6); font-size:8px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+    .modal-copy h2, .modal-identity h2 { margin:0; max-width:90%; font-family:var(--serif); font-size:clamp(28px, 5vw, 42px); line-height:.95; letter-spacing:-.045em; }
+    .modal-desc { display:none; }
+    .modal-specs { display:flex; flex-wrap:wrap; gap:6px 14px; margin-top:10px; color:rgba(255,255,255,.82); font-size:10px; }
+    .modal-specs span + span::before { content:"·"; margin-right:14px; }
+    .booking-steps { display:grid; grid-template-columns:repeat(3, 1fr); padding:17px 26px; border-bottom:1px solid var(--line); background:#fff; }
+    .booking-step-indicator { display:flex; align-items:center; gap:9px; color:#aaa49c; font-size:9px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+    .booking-step-indicator::after { content:""; flex:1; height:1px; background:var(--line); }
+    .booking-step-indicator:last-child::after { display:none; }
+    .booking-step-indicator span { display:grid; place-items:center; width:29px; height:29px; flex:0 0 auto; border-radius:50%; background:#eeeae5; color:#817b73; font-size:11px; }
+    .booking-step-indicator.active { color:var(--ink); }
+    .booking-step-indicator.active span, .booking-step-indicator.done span { color:#fff; background:var(--ink); }
+    .vehicle-booking { display:block; }
+    .booking-panel { display:none; min-height:390px; padding:18px 30px 22px; }
+    .booking-panel.active { display:block; }
+    .panel-kicker { margin:0 0 14px; color:var(--muted); font-size:9px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; }
+    .vehicle-field { display: grid; gap: 7px; }
+    .vehicle-field.full { grid-column: 1 / -1; }
+    .vehicle-field label { color: var(--muted); font-size: 8px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+    .vehicle-field input, .vehicle-field select { width: 100%; min-height: 58px; padding: 0 18px; border: 1px solid var(--line); border-radius: 12px; color: var(--ink); background: #fff; font-size: 14px; outline: 0; }
+    .vehicle-field select { cursor: pointer; }
+    .vehicle-field input:focus, .vehicle-field select:focus { border-color: var(--oxblood); }
+    .agency-display { margin-bottom:18px; padding:15px; border: 1px solid var(--line); background: var(--paper-2); pointer-events: none; user-select: none; }
+    .agency-display span { display: block; margin-bottom: 5px; color: var(--muted); font-size: 8px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+    .agency-display strong { font-family: var(--serif); font-size: 17px; font-weight: 600; }
+    .range-field { position: relative; display: grid; gap: 7px; margin-top:14px; }
+    .range-field > label { color: var(--muted); font-size: 8px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+    .range-trigger { width: 100%; min-height: 48px; display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 0 14px; border: 0; border-radius:12px; color: var(--ink); background: var(--paper-2); font-size: 11px; text-align: left; cursor: default; }
+    .range-trigger:hover, .range-trigger[aria-expanded="true"] { border-color: var(--oxblood); }
+    .range-trigger span:last-child { color: var(--oxblood); font-size: 16px; }
+    .range-calendar { display:block; position:relative; padding:0; border:0; background:#fff; box-shadow:none; }
+    .calendar-head { display: grid; grid-template-columns: 38px 1fr 38px; align-items: center; margin-bottom: 12px; }
+    .calendar-head button { width: 34px; height: 34px; border: 1px solid var(--line); background: transparent; cursor: pointer; }
+    .calendar-head strong { text-align: center; font-family: var(--sans); font-size: 17px; text-transform: capitalize; }
+    .calendar-weekdays, .calendar-days { display: grid; grid-template-columns: repeat(7, 1fr); }
+    .calendar-weekdays span { padding: 8px 0 10px; color: var(--muted); font-size: 9px; font-weight: 700; text-align: center; text-transform: uppercase; }
+    .calendar-day { min-width: 0; aspect-ratio: 1.35; border: 0; border-radius:9px; color: var(--ink); background: transparent; font-size: 12px; cursor: pointer; }
+    .calendar-day:hover:not(:disabled) { outline: 1px solid var(--oxblood); outline-offset: -2px; }
+    .calendar-day:disabled { color: #bbb5ac; cursor: not-allowed; }
+    .calendar-day.empty { pointer-events: none; }
+    .calendar-day.in-range { border-radius:0; background: #eadadd; }
+    .calendar-day.range-start, .calendar-day.range-end { color: #fff; background: var(--oxblood); font-weight: 700; }
+    .calendar-help { margin: 10px 0 0; color: var(--muted); font-size: 9px; text-align: center; }
+    .booking-summary { display:grid; gap:1px; border:1px solid var(--line); background:var(--line); }
+    .summary-row { display:grid; grid-template-columns:120px 1fr; gap:16px; padding:16px; background:#fff; }
+    .summary-row span { color:var(--muted); font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+    .summary-row strong { font-family:var(--serif); font-size:16px; }
+    .booking-actions { display:grid; grid-template-columns:auto 1fr; gap:12px; padding:18px 30px 22px; border-top:1px solid var(--line); background:#fff; }
+    .booking-actions button { min-height:54px; }
+    .booking-back { min-width:120px; border:1px solid var(--line); border-radius:12px; color:var(--ink); background:#fff; cursor:pointer; }
+    .booking-back[hidden] { display:none; }
+    .booking-next, .vehicle-booking .primary-btn { width:100%; border-radius:12px; justify-content:center; }
+    .vehicle-booking .primary-btn[hidden], .booking-next[hidden] { display:none; }
+    .booking-error { display: none; margin:0; padding:0 30px 12px; color: var(--oxblood); font-size: 10px; }
+    .booking-error.show { display: block; }
+
+    .toast { position: fixed; z-index: 200; right: 24px; bottom: 24px; max-width: 370px; padding: 18px 20px; color: var(--ink); background: var(--lime); border: 1px solid var(--ink); box-shadow: 5px 5px 0 var(--ink); font-size: 12px; transform: translateY(160%); transition: transform .35s ease; }
+    .toast.show { transform: translateY(0); }
+    .floating-contact { position:fixed; z-index:90; right:20px; top:50%; display:grid; gap:8px; transform:translateY(-50%); transition:opacity .25s ease, transform .25s ease; }
+    .floating-contact a { display:flex; align-items:center; justify-content:center; gap:8px; min-width:118px; min-height:44px; padding:0 14px; border:1px solid var(--ink); color:#fff; background:var(--ink); font-size:9px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; box-shadow:4px 4px 0 rgba(255,255,255,.7); }
+    .floating-contact .floating-whatsapp { color:var(--ink); background:var(--lime); }
+    .floating-contact .floating-instagram { background:var(--oxblood); }
+    body.booking-open .floating-contact { opacity:0; pointer-events:none; transform:translate(24px, -50%); }
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 980px) {
+      .desktop-nav, .header-cta { display: none; }
+      .topbar { grid-template-columns: 1fr auto; }
+      .menu-toggle { display: block; }
+      .mobile-nav { position: fixed; z-index: 99; top: 64px; left: 0; right: 0; padding: 24px; color: var(--ink); background: var(--paper); border-bottom: 1px solid var(--ink); }
+      .mobile-nav.open { display: grid; gap: 18px; }
+      .mobile-nav a { font-family: var(--serif); font-size: 28px; }
+      .hero { grid-template-columns: 1fr; height: auto; min-height: 0; }
+      .hero-copy { min-height: 690px; padding-top: 140px; }
+      .hero-copy::after { display: none; }
+      .hero-visual { min-height: 620px; }
+      .collection-head, .service-head, .final-wrap { grid-template-columns: 1fr; }
+      .fleet-card, .fleet-card:nth-child(4n + 1), .fleet-card:nth-child(4n + 4) { grid-column: span 6; }
+      .service-grid { grid-template-columns: 1fr 1fr; }
+      .service:last-child { grid-column: 1 / -1; border-top: 1px solid var(--line); }
+    }
+
+    @media (max-width: 640px) {
+      .shell { width: min(100% - 30px, 1480px); }
+      .topbar { height: 64px; padding: 0 15px; }
+      .brand-word { font-size: 9px; }
+      .hero-copy { min-height: 610px; padding: 120px 18px 56px; }
+      .hero h1 { font-size: clamp(60px, 20vw, 88px); }
+      .hero h1 .shift { padding-left: .15em; }
+      .hero-bottom { grid-template-columns: 1fr; margin-top: 38px; }
+      .hero-visual { min-height: 500px; }
+      .hero-stamp { top: 28px; width: 100px; }
+      .availability-panel > div { padding: 20px 16px; }
+      .availability-panel strong { font-size: 19px; }
+      .collection, .services { padding: 72px 0; }
+      .filter-row { align-items: flex-start; flex-direction: column; }
+      .filters { flex-wrap: nowrap; width: 100%; overflow-x: auto; padding-bottom: 6px; }
+      .filters button { white-space: nowrap; }
+      .fleet-card, .fleet-card:nth-child(4n + 1), .fleet-card:nth-child(4n + 4) { grid-column: 1 / -1; min-height: 450px; }
+      .car-frame { height: 230px; }
+      .service-grid { grid-template-columns: 1fr; }
+      .service, .service:nth-child(2), .service:last-child { min-height: 230px; margin-top: 0; border-right: 0; border-top: 0; border-bottom: 1px solid var(--line); }
+      .service h3 { margin-top: 45px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-links { flex-wrap: wrap; }
+      .modal-grid { grid-template-columns: 1fr; }
+      .modal-image { position: relative; min-height: 0; height: 210px; max-height: 210px; }
+      .modal-identity { left:20px; right:20px; bottom:17px; }
+      .modal-copy { min-height: 0; padding: 0; }
+      .modal-copy h2, .modal-identity h2 { max-width:88%; font-size:30px; }
+      .vehicle-booking { grid-template-columns: 1fr; }
+      .vehicle-field.full, .vehicle-booking .primary-btn, .booking-error { grid-column: 1; }
+      .toast { left: 15px; right: 15px; bottom: 15px; }
+      .lang-switch { margin-left: auto; }
+      .lang-switch button { min-width: 30px; padding: 0 6px; }
+      .floating-contact { top:auto; right:15px; bottom:15px; left:15px; grid-template-columns:1fr 1fr; transform:none; }
+      .floating-contact a { min-width:0; min-height:50px; box-shadow:3px 3px 0 rgba(255,255,255,.72); }
+      body.booking-open .floating-contact { transform:translateY(24px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body data-agency="Majest Drive" data-whatsapp="212663195662" data-instagram="https://www.instagram.com/majestdrive/">
+  <header class="topbar" id="topbar">
+    <a class="brand" href="#top" aria-label="Majest Drive — accueil">
+      <span class="brand-mark">M</span>
+      <span class="brand-word">MAJEST DRIVE</span>
+    </a>
+    <nav class="desktop-nav" aria-label="Navigation principale">
+      <a href="#collection" data-i18n="navBook">Réserver</a>
+      <a href="#collection" data-i18n="navCollection">Collection</a>
+      <a href="#services" data-i18n="navServices">Services</a>
+    </nav>
+    <div class="header-action">
+      <div class="lang-switch" aria-label="Language"><button class="active" data-lang="fr">FR</button><button data-lang="en">EN</button><button data-lang="ar">AR</button></div>
+      <a class="header-cta" id="headerWhatsapp" href="#" target="_blank" rel="noopener"><span data-i18n="headerCta">WhatsApp direct</span> <span>↗</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </header>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Navigation mobile">
+    <a href="#collection" data-i18n="navBook">Réserver</a><a href="#collection" data-i18n="navCollection">Collection</a><a href="#services" data-i18n="navServices">Services</a>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="kicker" data-i18n="heroKicker">Location automobile — Maroc</p>
+        <h1><span data-i18n="heroTitle">Le Maroc,</span><span class="shift" data-i18n="heroShift">en grand.</span></h1>
+        <div class="hero-bottom">
+          <p data-i18n="heroText">Une collection pensée pour les arrivées qui comptent. Réservez directement depuis la fiche du véhicule sur WhatsApp.</p>
+          <div class="hero-links"><a class="editorial-link" href="#collection"><span data-i18n="seeCollection">Voir la collection</span> <span>↓</span></a><a class="editorial-link" id="heroInstagram" href="#" target="_blank" rel="noopener"><span>Instagram</span> <span>↗</span></a></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="/assets/majest-hero-BJC9jOjR.png" alt="Véhicule premium sur une route marocaine" />
+        <div class="hero-stamp" data-i18n="heroStamp">Service direct · Maroc · 24 / 7</div>
+        <div class="availability-panel">
+          <div><small data-i18n="pickupLabel">Prise en charge</small><strong data-i18n="pickupValue">Aéroports & adresses</strong></div>
+          <div><small data-i18n="contactLabel">Contact</small><strong data-i18n="contactValue">WhatsApp direct</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="collection" id="collection">
+      <div class="shell">
+        <div class="collection-head reveal">
+          <div class="collection-title"><span class="section-no" data-i18n="collectionIndex">01 / Collection</span><h2><span data-i18n="collectionTitle">Dix silhouettes.</span><br /><em data-i18n="collectionShift">Une signature.</em></h2></div>
+          <p class="collection-note" data-i18n="collectionNote">Choisissez un véhicule puis utilisez son bouton de réservation pour ouvrir WhatsApp avec le modèle déjà renseigné.</p>
+        </div>
+        <div class="filter-row reveal">
+          <div class="filters" role="tablist" aria-label="Filtrer les véhicules">
+            <button class="active" data-category="Toutes" data-i18n="filterAll">Toutes</button><button data-category="Prestige">Prestige</button><button data-category="SUV">SUV</button><button data-category="Citadine" data-i18n="filterCity">Citadine</button><button data-category="7 Places" data-i18n="filterSeven">7 places</button>
+          </div>
+          <span id="resultCount">10 véhicules</span>
+        </div>
+        <div class="fleet-grid" id="fleetGrid"></div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="shell">
+        <div class="service-head reveal">
+          <div class="service-title"><span class="section-no" data-i18n="serviceIndex">02 / Expérience</span><h2><span data-i18n="serviceTitle">Moins d’attente.</span><br /><em data-i18n="serviceShift">Plus de route.</em></h2></div>
+          <p class="service-aside" data-i18n="serviceAside">Un parcours volontairement court : une collection claire, une demande complète et un interlocuteur humain pour confirmer les détails.</p>
+        </div>
+        <div class="service-grid reveal">
+          <article class="service"><b>01</b><h3 data-i18n="serviceOneTitle">Arrivée préparée</h3><p data-i18n="serviceOneText">Aéroport, hôtel, riad ou adresse : indiquez le point de remise dès votre première demande.</p></article>
+          <article class="service"><b>02</b><h3 data-i18n="serviceTwoTitle">Choix lisible</h3><p data-i18n="serviceTwoText">Catégories, places et équipements essentiels sont visibles sans échanges inutiles.</p></article>
+          <article class="service"><b>03</b><h3 data-i18n="serviceThreeTitle">Contact direct</h3><p data-i18n="serviceThreeText">Votre sélection est transformée en message WhatsApp clair, puis confirmée par l’agence.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="shell final-wrap reveal">
+        <div><p class="kicker" data-i18n="finalKicker">Votre prochain départ</p><h2><span data-i18n="finalTitle">Choisissez.</span><br /><em data-i18n="finalShift">Nous préparons.</em></h2></div>
+        <div class="final-action"><p data-i18n="finalText">Une question générale ? Écrivez-nous directement sur WhatsApp ou découvrez la flotte sur Instagram.</p><a class="primary-btn" id="finalWhatsapp" href="#" target="_blank" rel="noopener"><span data-i18n="headerCta">WhatsApp direct</span> <span>↗</span></a><a class="editorial-link" id="finalInstagram" href="#" target="_blank" rel="noopener" style="margin-top:24px"><span data-i18n="instagramCta">Voir Instagram</span> <span>↗</span></a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="shell footer-grid"><div><a class="brand" href="#top"><span class="brand-mark">M</span><span class="brand-word">MAJEST DRIVE</span></a><p data-i18n="footerNote">Landing de démonstration — disponibilité et conditions à confirmer par l’agence.</p></div><div class="footer-links"><a href="#collection" data-i18n="navCollection">Collection</a><a id="footerInstagram" href="#" target="_blank" rel="noopener">Instagram</a><a href="#services" data-i18n="navServices">Services</a></div><p class="seo-keywords" data-i18n="seoKeywords">Location voiture Maroc · Location voiture Casablanca · Location voiture Marrakech · Location voiture aéroport · Car rental Morocco · تأجير السيارات في المغرب · كراء السيارات الدار البيضاء · تأجير سيارات مطار مراكش</p></div></footer>
+
+  <aside class="floating-contact" aria-label="Contacts rapides">
+    <a class="floating-whatsapp" id="floatingWhatsapp" href="#" target="_blank" rel="noopener">WhatsApp ↗</a>
+    <a class="floating-instagram" id="floatingInstagram" href="#" target="_blank" rel="noopener">Instagram ↗</a>
+  </aside>
+
+  <dialog class="car-modal" id="carModal">
+    <div class="modal-grid">
+      <div class="modal-image">
+        <img id="modalImage" src="" alt="" />
+        <button class="modal-close" id="modalClose" aria-label="Fermer">×</button>
+        <div class="modal-identity">
+          <span class="modal-badge" id="modalBadge"></span>
+          <h2 id="modalName"></h2>
+          <div class="modal-specs" id="modalSpecs"></div>
+        </div>
+      </div>
+      <div class="modal-copy">
+        <p class="modal-desc" id="modalDesc"></p>
+        <form class="vehicle-booking" id="vehicleBookingForm">
+          <div class="agency-display" aria-label="Agence sélectionnée"><span data-i18n="agencyLabel">Agence</span><strong id="bookingAgency">Majest Drive</strong></div>
+          <div class="range-field">
+            <label for="dateRangeTrigger" data-i18n="durationLabel">Durée de location</label>
+            <button class="range-trigger" id="dateRangeTrigger" type="button" aria-expanded="false"><span id="dateRangeText">Choisir les dates</span><span>⌄</span></button>
+            <input id="vehicleStart" type="hidden" /><input id="vehicleEnd" type="hidden" />
+          </div>
+          <div class="range-calendar" id="rangeCalendar">
+            <div class="calendar-head"><button id="calendarPrev" type="button" aria-label="Mois précédent">←</button><strong id="calendarMonth"></strong><button id="calendarNext" type="button" aria-label="Mois suivant">→</button></div>
+            <div class="calendar-weekdays" id="calendarWeekdays"></div>
+            <div class="calendar-days" id="calendarDays"></div>
+            <p class="calendar-help" id="calendarHelp" data-i18n="calendarHelp">Choisissez d’abord la date de début, puis la date de fin.</p>
+          </div>
+          <div class="vehicle-field full"><label for="vehicleLocation" data-i18n="locationLabel">Lieu de prise en charge</label><select id="vehicleLocation" required><option value="" data-i18n="locationPlaceholder">Choisir un lieu</option><option value="Aéroport Mohammed V — Casablanca">Aéroport Mohammed V — Casablanca</option><option value="Aéroport Marrakech Menara">Aéroport Marrakech Menara</option><option value="Aéroport Tanger Ibn Battouta">Aéroport Tanger Ibn Battouta</option><option value="Aéroport Fès-Saïss">Aéroport Fès-Saïss</option><option value="Aéroport Nador El Aroui">Aéroport Nador El Aroui</option><option value="Hôtel / Riad">Hôtel / Riad</option><option value="Adresse à confirmer sur WhatsApp">Autre adresse</option></select></div>
+          <p class="booking-error" id="bookingError" data-i18n="bookingError">Vérifiez les dates et choisissez un lieu.</p>
+          <button class="primary-btn" id="modalReserve" type="submit"><span data-i18n="reserveThisCar">Réserver ce véhicule</span> <span>↗</span></button>
+        </form>
+      </div>
+    </div>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const vehicles = [
+      { id: 1, name: "VW Golf 8 R-Line", category: "Prestige", badge: "Best-seller", image: "./assets/cars/golf8.png", specs: ["Automatique · Diesel", "5 places · 3 bagages", "GPS · Caméra 360°"], desc: "Une compacte premium équilibrée, pensée pour la ville comme pour les longues distances." },
+      { id: 2, name: "Mercedes-AMG GT", category: "Prestige", badge: "Supercar", image: "./assets/cars/amggt.png", specs: ["Automatique · V8 Biturbo", "2 places", "Échappement Sport AMG"], desc: "Une présence radicale pour les événements, les rendez-vous et les arrivées qui comptent." },
+      { id: 3, name: "Range Rover Sport HSE", category: "SUV", badge: "Luxe & aventure", image: "./assets/cars/rangerover.png", specs: ["Automatique · 4×4", "5 places · 5 bagages", "Suspension pneumatique"], desc: "Confort souverain et capacité routière pour traverser le Maroc sans compromis." },
+      { id: 4, name: "Dacia Jogger 7 Places", category: "7 Places", badge: "Famille / MRE", image: "./assets/cars/jogger.png", specs: ["Manuelle", "7 vraies places", "Grand coffre modulable"], desc: "Une solution spacieuse pour les familles, les bagages et les déplacements longue durée." },
+      { id: 5, name: "Cupra Formentor VZ", category: "SUV", badge: "Sport & design", image: "./assets/cars/formentor.png", specs: ["Automatique 4Drive", "5 places · 4 bagages", "Cockpit digital"], desc: "Un SUV coupé expressif qui équilibre caractère, confort et polyvalence." },
+      { id: 6, name: "Renault Clio 5 Techno", category: "Citadine", badge: "Économique", image: "./assets/cars/clio5.png", specs: ["Manuelle / automatique", "5 places · 2 bagages", "Écran tactile CarPlay"], desc: "Agile, sobre et facile à vivre pour les trajets urbains et les budgets maîtrisés." },
+      { id: 7, name: "Porsche Cayenne Coupé", category: "Prestige", badge: "Executive", image: "./assets/cars/cayenne.png", specs: ["Automatique · V6 Turbo", "5 places · 4 bagages", "Toit panoramique"], desc: "La silhouette sportive d’un grand voyageur, adaptée aux rendez-vous comme aux escapades." },
+      { id: 8, name: "Peugeot 208 GT Line", category: "Citadine", badge: "Nouvelle génération", image: "./assets/cars/peugeot208_real.png", specs: ["Automatique EAT8", "5 places", "i-Cockpit 3D · Caméra"], desc: "Un format compact avec une présentation contemporaine et un excellent confort quotidien." },
+      { id: 9, name: "Mercedes Classe G 63 AMG", category: "Prestige", badge: "Exclusivité", image: "./assets/cars/gclass.png", specs: ["Automatique 9G-Tronic", "5 places · V8", "Audio Burmester"], desc: "Une icône immédiatement reconnaissable, destinée aux expériences haut de gamme." },
+      { id: 10, name: "Hyundai Tucson", category: "SUV", badge: "Grand tourisme", image: "./assets/cars/tucson.png", specs: ["Automatique · Diesel", "5 places · 4 bagages", "Aides à la conduite"], desc: "Un SUV familial confortable pour relier les grandes villes et voyager sereinement." }
+    ];
+
+    const $ = (selector, scope = document) => scope.querySelector(selector);
+    const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
+    const fleetGrid = $("#fleetGrid");
+    const resultCount = $("#resultCount");
+    const modal = $("#carModal");
+    const agencyName = document.body.dataset.agency;
+    const whatsappNumber = document.body.dataset.whatsapp;
+    const instagramUrl = document.body.dataset.instagram;
+    let currentLanguage = "fr";
+    let activeCategory = "Toutes";
+    let selectedVehicle = null;
+    const translations = {
+      fr: { navBook:"Réserver", navCollection:"Collection", navDestinations:"Destinations", navServices:"Services", headerCta:"WhatsApp direct", heroKicker:"Location automobile — Maroc", heroTitle:"Le Maroc,", heroShift:"en grand.", heroText:"Une collection pensée pour les arrivées qui comptent. Réservez directement depuis la fiche du véhicule sur WhatsApp.", seeCollection:"Voir la collection", pickupLabel:"Prise en charge", pickupValue:"Aéroports & adresses", contactLabel:"Contact", contactValue:"WhatsApp direct", collectionIndex:"01 / Collection", collectionTitle:"Dix silhouettes.", collectionShift:"Une signature.", collectionNote:"Choisissez un véhicule puis complétez les dates et le lieu directement dans sa fiche.", filterAll:"Toutes", filterCity:"Citadine", filterSeven:"7 places", finalText:"Une question générale ? Écrivez-nous directement sur WhatsApp ou découvrez la flotte sur Instagram.", instagramCta:"Voir Instagram", footerNote:"Landing de démonstration — disponibilité et conditions à confirmer par l’agence.", reserve:"Réserver ce véhicule", reserveThisCar:"Envoyer la réservation", agencyLabel:"Agence", startLabel:"Date de début", endLabel:"Date de fin", locationLabel:"Lieu de prise en charge", locationPlaceholder:"Choisir un lieu", bookingError:"Vérifiez les dates et choisissez un lieu.", countSingle:"véhicule", countPlural:"véhicules", generalMessage:"Bonjour, je souhaite obtenir des informations sur vos véhicules disponibles. Pouvez-vous m’aider ?", bookingMessage:(name,start,end,location,days)=>`Bonjour ${agencyName}, je souhaite effectuer cette demande de réservation :\n\n🚗 Véhicule : ${name}\n📅 Date de début : ${start}\n📅 Date de fin : ${end}\n⏱️ Durée : ${days} jour${days > 1 ? "s" : ""}\n📍 Lieu de prise en charge : ${location}\n\nPouvez-vous confirmer la disponibilité, le tarif et les conditions ? Merci.` },
+      en: { navBook:"Book", navCollection:"Collection", navDestinations:"Destinations", navServices:"Services", headerCta:"Chat on WhatsApp", heroKicker:"Car rental — Morocco", heroTitle:"Morocco,", heroShift:"on your terms.", heroText:"A collection designed for memorable arrivals. Book directly from each vehicle page on WhatsApp.", seeCollection:"Explore the collection", pickupLabel:"Pickup", pickupValue:"Airports & addresses", contactLabel:"Contact", contactValue:"Direct WhatsApp", collectionIndex:"01 / Collection", collectionTitle:"Ten silhouettes.", collectionShift:"One signature.", collectionNote:"Choose a vehicle, then enter your dates and pickup location directly on its page.", filterAll:"All", filterCity:"City", filterSeven:"7 seats", finalText:"Have a general question? Message us on WhatsApp or discover the fleet on Instagram.", instagramCta:"View Instagram", footerNote:"Demo landing page — availability and conditions must be confirmed by the agency.", reserve:"Book this vehicle", reserveThisCar:"Send booking request", agencyLabel:"Agency", startLabel:"Start date", endLabel:"End date", locationLabel:"Pickup location", locationPlaceholder:"Choose a location", bookingError:"Check the dates and choose a location.", countSingle:"vehicle", countPlural:"vehicles", generalMessage:"Hello, I would like information about your available vehicles. Can you help me?", bookingMessage:(name,start,end,location,days)=>`Hello ${agencyName}, I would like to submit this booking request:\n\n🚗 Vehicle: ${name}\n📅 Start date: ${start}\n📅 End date: ${end}\n⏱️ Duration: ${days} day${days > 1 ? "s" : ""}\n📍 Pickup location: ${location}\n\nCould you confirm availability, price and conditions? Thank you.` },
+      ar: { navBook:"احجز", navCollection:"السيارات", navDestinations:"الوجهات", navServices:"الخدمات", headerCta:"تواصل عبر واتساب", heroKicker:"كراء السيارات — المغرب", heroTitle:"المغرب،", heroShift:"على طريقتك.", heroText:"مجموعة سيارات مختارة لرحلة مميزة. اختر السيارة وأكمل الحجز مباشرة عبر واتساب.", seeCollection:"اكتشف السيارات", pickupLabel:"مكان الاستلام", pickupValue:"المطارات والعناوين", contactLabel:"التواصل", contactValue:"واتساب مباشر", collectionIndex:"01 / مجموعة السيارات", collectionTitle:"عشر سيارات.", collectionShift:"اختيار واحد مميز.", collectionNote:"اختر السيارة ثم أدخل تاريخ البداية والنهاية ومكان الاستلام داخل صفحة السيارة.", filterAll:"الكل", filterCity:"سيارات المدينة", filterSeven:"7 مقاعد", finalText:"لديك سؤال؟ تواصل معنا مباشرة عبر واتساب أو اكتشف السيارات على إنستغرام.", instagramCta:"زيارة إنستغرام", footerNote:"صفحة تجريبية — يجب تأكيد التوفر والأسعار والشروط من طرف الوكالة.", reserve:"احجز هذه السيارة", reserveThisCar:"إرسال طلب الحجز", agencyLabel:"الوكالة", startLabel:"تاريخ البداية", endLabel:"تاريخ النهاية", locationLabel:"مكان استلام السيارة", locationPlaceholder:"اختر مكان الاستلام", bookingError:"تحقق من التواريخ واختر مكان الاستلام.", countSingle:"سيارة", countPlural:"سيارات", generalMessage:"السلام عليكم، أريد معلومات عن السيارات المتوفرة لديكم. هل يمكنكم مساعدتي؟", bookingMessage:(name,start,end,location,days)=>`السلام عليكم ${agencyName}، أريد إرسال طلب الحجز التالي:\n\n🚗 السيارة: ${name}\n📅 تاريخ البداية: ${start}\n📅 تاريخ النهاية: ${end}\n⏱️ المدة: ${days} يوم\n📍 مكان الاستلام: ${location}\n\nهل يمكنكم تأكيد التوفر والسعر والشروط؟ شكراً.` }
+    };
+    Object.assign(translations.fr, { routeKicker:"Livraison sur mesure", routeTitle:"Le véhicule", routeMiddle:"vous", routeShift:"attend.", serviceIndex:"02 / Expérience", serviceTitle:"Moins d’attente.", serviceShift:"Plus de route.", serviceAside:"Un parcours volontairement court : une collection claire, une demande complète et un interlocuteur humain pour confirmer les détails.", serviceOneTitle:"Arrivée préparée", serviceOneText:"Aéroport, hôtel, riad ou adresse : indiquez le point de remise dès votre première demande.", serviceTwoTitle:"Choix lisible", serviceTwoText:"Catégories, places et équipements essentiels sont visibles sans échanges inutiles.", serviceThreeTitle:"Contact direct", serviceThreeText:"Votre sélection est transformée en message WhatsApp clair, puis confirmée par l’agence.", finalKicker:"Votre prochain départ", finalTitle:"Choisissez.", finalShift:"Nous préparons.", seoKeywords:"Location voiture Maroc · Location voiture Casablanca · Location voiture Marrakech · Location voiture aéroport · Car rental Morocco · تأجير السيارات في المغرب · كراء السيارات الدار البيضاء · تأجير سيارات مطار مراكش" });
+    Object.assign(translations.en, { routeKicker:"Tailored delivery", routeTitle:"Your vehicle", routeMiddle:"is", routeShift:"waiting.", serviceIndex:"02 / Experience", serviceTitle:"Less waiting.", serviceShift:"More driving.", serviceAside:"A deliberately short journey: a clear collection, a complete request and a real person to confirm every detail.", serviceOneTitle:"Arrival prepared", serviceOneText:"Airport, hotel, riad or address: include the handover point in your first request.", serviceTwoTitle:"Clear choice", serviceTwoText:"Categories, seats and essential equipment are visible without unnecessary messages.", serviceThreeTitle:"Direct contact", serviceThreeText:"Your selection becomes a clear WhatsApp request, then the agency confirms it.", finalKicker:"Your next departure", finalTitle:"You choose.", finalShift:"We prepare.", seoKeywords:"Car rental Morocco · Casablanca car rental · Marrakech airport car rental · Luxury car hire Morocco · تأجير السيارات في المغرب · كراء السيارات المغرب" });
+    Object.assign(translations.ar, { routeKicker:"توصيل حسب الطلب", routeTitle:"سيارتك", routeMiddle:"في", routeShift:"انتظارك.", serviceIndex:"02 / التجربة", serviceTitle:"انتظار أقل.", serviceShift:"طريق أكثر.", serviceAside:"مسار بسيط وواضح: اختر السيارة، أكمل طلب الحجز، ثم تؤكد الوكالة جميع التفاصيل معك.", serviceOneTitle:"استلام منظم", serviceOneText:"المطار أو الفندق أو الرياض أو العنوان: حدد مكان الاستلام منذ أول طلب.", serviceTwoTitle:"اختيار واضح", serviceTwoText:"الفئات وعدد المقاعد والتجهيزات الأساسية ظاهرة بدون رسائل كثيرة.", serviceThreeTitle:"تواصل مباشر", serviceThreeText:"يتحول اختيارك إلى رسالة واتساب كاملة ثم تؤكد الوكالة الحجز.", finalKicker:"رحلتك القادمة", finalTitle:"أنت تختار.", finalShift:"ونحن نجهز.", seoKeywords:"تأجير السيارات في المغرب · كراء السيارات المغرب · كراء السيارات الدار البيضاء · تأجير السيارات مراكش · كراء السيارات في المطار · تأجير سيارات فاخرة المغرب" });
+    Object.assign(translations.fr, { durationLabel:"Durée de location", calendarHelp:"Choisissez d’abord la date de début, puis la date de fin.", datePlaceholder:"Choisir les dates", startChosen:"Choisissez maintenant la date de fin" });
+    Object.assign(translations.en, { durationLabel:"Rental period", calendarHelp:"Choose the start date first, then the end date.", datePlaceholder:"Choose dates", startChosen:"Now choose the end date" });
+    Object.assign(translations.ar, { durationLabel:"مدة الكراء", calendarHelp:"اختر تاريخ البداية أولا، ثم تاريخ النهاية.", datePlaceholder:"اختر تاريخ البداية والنهاية", startChosen:"اختر الآن تاريخ النهاية" });
+    translations.fr.heroStamp = "Service direct · Maroc · 24 / 7";
+    translations.en.heroStamp = "Direct service · Morocco · 24 / 7";
+    translations.ar.heroStamp = "خدمة مباشرة · المغرب · 24 / 7";
+    const t = () => translations[currentLanguage];
+    const waHref = message => `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+    function applyLanguage(language) {
+      currentLanguage = language;
+      document.documentElement.lang = language;
+      document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+      $$('[data-i18n]').forEach(element => {
+        const value = translations[language][element.dataset.i18n];
+        if (typeof value === "string") element.textContent = value;
+      });
+      $$('.lang-switch button').forEach(button => button.classList.toggle('active', button.dataset.lang === language));
+      [$('#headerWhatsapp'), $('#finalWhatsapp'), $('#floatingWhatsapp')].forEach(link => link.href = waHref(t().generalMessage));
+      updateDateRangeText();
+      renderCalendar();
+      renderFleet(activeCategory);
+    }
+
+    function renderFleet(category = "Toutes") {
+      activeCategory = category;
+      const list = category === "Toutes" ? vehicles : vehicles.filter(v => v.category === category);
+      resultCount.textContent = `${String(list.length).padStart(2, "0")} ${list.length > 1 ? t().countPlural : t().countSingle}`;
+      fleetGrid.innerHTML = list.map((vehicle, index) => `
+        <article class="fleet-card reveal" tabindex="0" role="button" data-id="${vehicle.id}" aria-label="Voir ${vehicle.name}">
+          <div class="card-top"><span class="card-index">${String(index + 1).padStart(2, "0")}</span><span class="card-badge">${vehicle.badge}</span></div>
+          <div class="car-frame"><img src="${vehicle.image}" alt="${vehicle.name}" loading="lazy" /></div>
+          <h3>${vehicle.name}</h3>
+          <div class="card-meta">${vehicle.specs.map(spec => `<span>${spec}</span>`).join("")}</div>
+          <button class="card-reserve" data-reserve-id="${vehicle.id}">${t().reserve} ↗</button>
+          <span class="card-open">↗</span>
+        </article>`).join("");
+      attachCardEvents();
+      observeReveals();
+    }
+
+    function attachCardEvents() {
+      $$(".fleet-card").forEach(card => {
+        const open = () => openModal(vehicles.find(v => v.id === Number(card.dataset.id)));
+        card.addEventListener("click", open);
+        card.addEventListener("keydown", event => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); open(); } });
+      });
+      $$('[data-reserve-id]').forEach(button => button.addEventListener('click', event => {
+        event.stopPropagation();
+        const vehicle = vehicles.find(v => v.id === Number(button.dataset.reserveId));
+        openModal(vehicle);
+      }));
+    }
+
+    function openModal(vehicle) {
+      if (!vehicle) return;
+      selectedVehicle = vehicle;
+      $("#modalImage").src = vehicle.image;
+      $("#modalImage").alt = vehicle.name;
+      $("#modalBadge").textContent = `${vehicle.badge} — ${vehicle.category}`;
+      $("#modalName").textContent = vehicle.name;
+      $("#modalDesc").textContent = vehicle.desc;
+      $("#modalSpecs").innerHTML = vehicle.specs.map(spec => `<span>${spec}</span>`).join("");
+      $("#bookingAgency").textContent = agencyName;
+      $("#bookingError").classList.remove("show");
+      resetDateRange();
+      modal.showModal();
+      document.body.classList.add("booking-open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() { modal.close(); document.body.classList.remove("booking-open"); document.body.style.overflow = ""; }
+    $("#modalClose").addEventListener("click", closeModal);
+    modal.addEventListener("click", event => { if (event.target === modal) closeModal(); });
+    modal.addEventListener("close", () => { document.body.classList.remove("booking-open"); document.body.style.overflow = ""; });
+
+    const localeByLanguage = { fr:"fr-FR", en:"en-GB", ar:"ar-MA" };
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    let rangeStart = null;
+    let rangeEnd = null;
+    let calendarCursor = new Date(today.getFullYear(), today.getMonth(), 1);
+
+    const toIsoDate = date => `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+    const fromIsoDate = value => {
+      const [year, month, day] = value.split("-").map(Number);
+      return new Date(year, month - 1, day);
+    };
+    const sameDay = (a, b) => Boolean(a && b && toIsoDate(a) === toIsoDate(b));
+    const formatDisplayDate = date => new Intl.DateTimeFormat(localeByLanguage[currentLanguage], { day:"numeric", month:"short", year:"numeric" }).format(date);
+
+    function updateDateRangeText() {
+      const text = $("#dateRangeText");
+      if (!text) return;
+      if (rangeStart && rangeEnd) text.textContent = `${formatDisplayDate(rangeStart)} — ${formatDisplayDate(rangeEnd)}`;
+      else if (rangeStart) text.textContent = `${formatDisplayDate(rangeStart)} — ${t().startChosen}`;
+      else text.textContent = t().datePlaceholder;
+    }
+
+    function setCalendarOpen(open) {
+      $("#rangeCalendar").classList.toggle("open", open);
+      $("#dateRangeTrigger").setAttribute("aria-expanded", String(open));
+    }
+
+    function renderCalendar() {
+      const monthLabel = $("#calendarMonth");
+      if (!monthLabel) return;
+      monthLabel.textContent = new Intl.DateTimeFormat(localeByLanguage[currentLanguage], { month:"long", year:"numeric" }).format(calendarCursor);
+      const monday = new Date(2024, 0, 1);
+      $("#calendarWeekdays").innerHTML = Array.from({ length:7 }, (_, index) => {
+        const day = new Date(monday);
+        day.setDate(monday.getDate() + index);
+        return `<span>${new Intl.DateTimeFormat(localeByLanguage[currentLanguage], { weekday:"short" }).format(day)}</span>`;
+      }).join("");
+
+      const firstDay = new Date(calendarCursor.getFullYear(), calendarCursor.getMonth(), 1);
+      const offset = (firstDay.getDay() + 6) % 7;
+      const gridStart = new Date(firstDay);
+      gridStart.setDate(firstDay.getDate() - offset);
+      $("#calendarDays").innerHTML = Array.from({ length:42 }, (_, index) => {
+        const day = new Date(gridStart);
+        day.setDate(gridStart.getDate() + index);
+        const outside = day.getMonth() !== calendarCursor.getMonth();
+        const disabled = day < today;
+        const isStart = sameDay(day, rangeStart);
+        const isEnd = sameDay(day, rangeEnd);
+        const inRange = Boolean(rangeStart && rangeEnd && day > rangeStart && day < rangeEnd);
+        const classes = ["calendar-day", outside ? "outside" : "", isStart ? "range-start" : "", isEnd ? "range-end" : "", inRange ? "in-range" : ""].filter(Boolean).join(" ");
+        return `<button class="${classes}" type="button" data-date="${toIsoDate(day)}" ${disabled ? "disabled" : ""} aria-label="${formatDisplayDate(day)}">${day.getDate()}</button>`;
+      }).join("");
+      const currentMonthStart = new Date(today.getFullYear(), today.getMonth(), 1);
+      $("#calendarPrev").disabled = calendarCursor <= currentMonthStart;
+      $$(".calendar-day[data-date]", $("#calendarDays")).forEach(button => button.addEventListener("click", () => selectCalendarDate(fromIsoDate(button.dataset.date))));
+    }
+
+    function selectCalendarDate(date) {
+      if (!rangeStart || rangeEnd || date <= rangeStart) {
+        rangeStart = date;
+        rangeEnd = null;
+      } else {
+        rangeEnd = date;
+      }
+      $("#vehicleStart").value = rangeStart ? toIsoDate(rangeStart) : "";
+      $("#vehicleEnd").value = rangeEnd ? toIsoDate(rangeEnd) : "";
+      $("#bookingError").classList.remove("show");
+      updateDateRangeText();
+      renderCalendar();
+      if (rangeEnd) setCalendarOpen(false);
+    }
+
+    function resetDateRange() {
+      rangeStart = null;
+      rangeEnd = null;
+      calendarCursor = new Date(today.getFullYear(), today.getMonth(), 1);
+      $("#vehicleStart").value = "";
+      $("#vehicleEnd").value = "";
+      setCalendarOpen(false);
+      updateDateRangeText();
+      renderCalendar();
+    }
+
+    $("#dateRangeTrigger").addEventListener("click", () => setCalendarOpen(!$("#rangeCalendar").classList.contains("open")));
+    $("#calendarPrev").addEventListener("click", () => { calendarCursor = new Date(calendarCursor.getFullYear(), calendarCursor.getMonth() - 1, 1); renderCalendar(); });
+    $("#calendarNext").addEventListener("click", () => { calendarCursor = new Date(calendarCursor.getFullYear(), calendarCursor.getMonth() + 1, 1); renderCalendar(); });
+    $("#vehicleBookingForm").addEventListener("submit", event => {
+      event.preventDefault();
+      const start = $("#vehicleStart").value;
+      const end = $("#vehicleEnd").value;
+      const location = $("#vehicleLocation").value;
+      const days = Math.ceil((new Date(`${end}T12:00:00`) - new Date(`${start}T12:00:00`)) / 86400000);
+      const valid = selectedVehicle && start && end && location && days > 0;
+      $("#bookingError").classList.toggle("show", !valid);
+      if (!valid) return;
+      window.open(waHref(t().bookingMessage(selectedVehicle.name, start, end, location, days)), "_blank", "noopener");
+    });
+
+    $$(".filters button").forEach(button => button.addEventListener("click", () => {
+      $$(".filters button").forEach(item => item.classList.remove("active"));
+      button.classList.add("active");
+      renderFleet(button.dataset.category);
+    }));
+
+    [$('#heroInstagram'), $('#finalInstagram'), $('#footerInstagram'), $('#floatingInstagram')].forEach(link => link.href = instagramUrl);
+    $('#floatingWhatsapp').href = waHref(t().generalMessage);
+    $$('.lang-switch button').forEach(button => button.addEventListener('click', () => applyLanguage(button.dataset.lang)));
+
+    const topbar = $("#topbar");
+    window.addEventListener("scroll", () => topbar.classList.toggle("scrolled", window.scrollY > 40), { passive: true });
+    const menuToggle = $("#menuToggle");
+    const mobileNav = $("#mobileNav");
+    menuToggle.addEventListener("click", () => {
+      const isOpen = mobileNav.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+    $$("a", mobileNav).forEach(link => link.addEventListener("click", () => mobileNav.classList.remove("open")));
+
+    let revealObserver;
+    function observeReveals() {
+      if (!revealObserver) revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add("visible"); revealObserver.unobserve(entry.target); }
+      }), { threshold: .08 });
+      $$(".reveal:not(.visible)").forEach(element => revealObserver.observe(element));
+    }
+
+    applyLanguage("fr");
+    observeReveals();
+  </script>
+</body>
+</html>
