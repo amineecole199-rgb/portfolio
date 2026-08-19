@@ -533,6 +533,31 @@ function initMediaModal() {
           </div>
         `;
       }
+      else if (demoType === 'gastronomie-video') {
+        const isEn = currentLang === 'en';
+        contentHTML = `
+          <div style="text-align: center;">
+            <video controls autoplay muted playsinline style="max-height: 500px; width: 100%; max-width: 100%; border: 1px solid var(--c-dark); background: #000; box-shadow: 4px 4px 0px var(--c-dark);">
+              <source src="assets/video/gastronomie.mp4?t=${cacheBust}" type="video/mp4">
+              ${isEn ? 'Your browser does not support the video tag.' : 'Votre navigateur ne supporte pas la lecture vidéo.'}
+            </video>
+          </div>
+          <div style="margin-top: 18px; padding: 14px; background: var(--bg-page); border: 1px solid var(--border-medium); border-left: 3px solid var(--c-blue);">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; color: var(--c-blue); margin-bottom: 2px;">
+              ${isEn ? 'PLATFORM OVERVIEW · MAISON SAFRAN' : 'APERÇU DE LA PLATEFORME · MAISON SAFRAN'}
+            </div>
+            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 10px;">
+              ${isEn 
+                ? 'Interactive culinary showcase featuring instant table reservation, responsive mobile layout, and live wedding/banquet budget simulator with WhatsApp integration.' 
+                : 'Interface gastronomique de luxe avec réservation de table en direct, carte interactive et simulateur de budget banquet/mariage avec intégration WhatsApp.'}
+            </p>
+            <a href="gastronomie/index.html" target="_blank" rel="noopener" class="btn btn-sm btn-primary" style="display: inline-flex; align-items: center; gap: 6px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              <span>${isEn ? 'Open Live Website ↗' : 'Tester le Site en direct ↗'}</span>
+            </a>
+          </div>
+        `;
+      }
       else if (demoType === 'prestashop-video') {
         const isEn = currentLang === 'en';
         contentHTML = `
