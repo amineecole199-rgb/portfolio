@@ -295,7 +295,46 @@ document.addEventListener('DOMContentLoaded', () => {
   initMediaModal();
   initStickyNavbar();
   initSmoothScroll();
+  initMobileMenu();
 });
+
+/* ==========================================================================
+   MOBILE NAVIGATION
+   ========================================================================== */
+function initMobileMenu() {
+  const toggle = document.getElementById('menuToggle');
+  const nav = document.getElementById('mainNav');
+  const navbar = document.getElementById('navbar');
+
+  if (!toggle || !nav || !navbar) return;
+
+  const closeMenu = () => {
+    navbar.classList.remove('menu-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', currentLang === 'en' ? 'Open menu' : 'Ouvrir le menu');
+    document.body.classList.remove('nav-locked');
+  };
+
+  toggle.addEventListener('click', () => {
+    const willOpen = !navbar.classList.contains('menu-open');
+    navbar.classList.toggle('menu-open', willOpen);
+    toggle.setAttribute('aria-expanded', String(willOpen));
+    toggle.setAttribute('aria-label', willOpen
+      ? (currentLang === 'en' ? 'Close menu' : 'Fermer le menu')
+      : (currentLang === 'en' ? 'Open menu' : 'Ouvrir le menu'));
+    document.body.classList.toggle('nav-locked', willOpen);
+  });
+
+  nav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeMenu();
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) closeMenu();
+  }, { passive: true });
+}
 
 /* ==========================================================================
    LANGUAGE SWITCHER SYSTEM (FR / EN)
