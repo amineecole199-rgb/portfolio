@@ -12,6 +12,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root {
+      --demo-notice-height: 42px;
       --paper: #f3efe7;
       --paper-2: #e8e0d4;
       --ink: #171713;
@@ -44,6 +45,25 @@
     button, a { -webkit-tap-highlight-color: transparent; }
     img { display: block; max-width: 100%; }
 
+    .portfolio-demo-bar {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 120;
+      min-height: var(--demo-notice-height);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      padding: 8px 20px;
+      color: #3f2b00;
+      background: #fff4cc;
+      border-bottom: 2px solid #e3a008;
+      font-size: 11px;
+      font-weight: 800;
+      text-align: center;
+    }
+    .portfolio-demo-bar a { padding-bottom: 2px; border-bottom: 1px solid currentColor; white-space: nowrap; }
+
     .shell { width: min(1480px, calc(100% - 48px)); margin-inline: auto; }
     .kicker {
       display: flex;
@@ -61,7 +81,7 @@
     .topbar {
       position: fixed;
       z-index: 100;
-      top: 0;
+      top: var(--demo-notice-height);
       left: 0;
       right: 0;
       height: 78px;
@@ -373,7 +393,7 @@
       .desktop-nav, .header-cta { display: none; }
       .topbar { grid-template-columns: 1fr auto; }
       .menu-toggle { display: block; }
-      .mobile-nav { position: fixed; z-index: 99; top: 64px; left: 0; right: 0; padding: 24px; color: var(--ink); background: var(--paper); border-bottom: 1px solid var(--ink); }
+      .mobile-nav { position: fixed; z-index: 99; top: calc(64px + var(--demo-notice-height)); left: 0; right: 0; padding: 24px; color: var(--ink); background: var(--paper); border-bottom: 1px solid var(--ink); }
       .mobile-nav.open { display: grid; gap: 18px; }
       .mobile-nav a { font-family: var(--serif); font-size: 28px; }
       .hero { grid-template-columns: 1fr; height: auto; min-height: 0; }
@@ -387,6 +407,8 @@
     }
 
     @media (max-width: 640px) {
+      :root { --demo-notice-height: 58px; }
+      .portfolio-demo-bar { gap: 8px; padding-inline: 12px; font-size: 9px; }
       .shell { width: min(100% - 30px, 1480px); }
       .topbar { height: 64px; padding: 0 15px; }
       .brand-word { font-size: 9px; }
@@ -430,7 +452,11 @@
     }
   </style>
 </head>
-<body data-agency="Majest Drive" data-whatsapp="212663195662" data-instagram="https://www.instagram.com/majestdrive/">
+<body data-agency="Majest Drive" data-whatsapp="212660659645" data-instagram="../index.html#projets">
+  <aside class="portfolio-demo-bar" role="note" aria-label="Avertissement de démonstration">
+    <span data-i18n="demoNotice">DÉMONSTRATION PORTFOLIO — marque, flotte et disponibilités présentées à titre d'exemple.</span>
+    <a href="../index.html#projets" data-i18n="backPortfolio">Retour au portfolio ↗</a>
+  </aside>
   <header class="topbar" id="topbar">
     <a class="brand" href="#top" aria-label="Majest Drive — accueil">
       <span class="brand-mark">M</span>
@@ -458,11 +484,11 @@
         <h1><span data-i18n="heroTitle">Le Maroc,</span><span class="shift" data-i18n="heroShift">en grand.</span></h1>
         <div class="hero-bottom">
           <p data-i18n="heroText">Une collection pensée pour les arrivées qui comptent. Réservez directement depuis la fiche du véhicule sur WhatsApp.</p>
-          <div class="hero-links"><a class="editorial-link" href="#collection"><span data-i18n="seeCollection">Voir la collection</span> <span>↓</span></a><a class="editorial-link" id="heroInstagram" href="#" target="_blank" rel="noopener"><span>Instagram</span> <span>↗</span></a></div>
+        <div class="hero-links"><a class="editorial-link" href="#collection"><span data-i18n="seeCollection">Voir la collection</span> <span>↓</span></a><a class="editorial-link" id="heroInstagram" href="#" target="_blank" rel="noopener"><span data-i18n="backPortfolio">Retour au portfolio</span> <span>↗</span></a></div>
         </div>
       </div>
       <div class="hero-visual">
-        <img src="/assets/majest-hero-BJC9jOjR.png" alt="Véhicule premium sur une route marocaine" />
+        <img src="assets/majest-hero-BJC9jOjR.png" alt="Véhicule premium sur une route marocaine" />
         <div class="hero-stamp" data-i18n="heroStamp">Service direct · Maroc · 24 / 7</div>
         <div class="availability-panel">
           <div><small data-i18n="pickupLabel">Prise en charge</small><strong data-i18n="pickupValue">Aéroports & adresses</strong></div>
@@ -513,7 +539,7 @@
 
   <aside class="floating-contact" aria-label="Contacts rapides">
     <a class="floating-whatsapp" id="floatingWhatsapp" href="#" target="_blank" rel="noopener">WhatsApp ↗</a>
-    <a class="floating-instagram" id="floatingInstagram" href="#" target="_blank" rel="noopener">Instagram ↗</a>
+  <a class="floating-instagram" id="floatingInstagram" href="#" target="_blank" rel="noopener"><span data-i18n="backPortfolio">Retour au portfolio</span> ↗</a>
   </aside>
 
   <dialog class="car-modal" id="carModal">
@@ -590,8 +616,32 @@
     translations.fr.heroStamp = "Service direct · Maroc · 24 / 7";
     translations.en.heroStamp = "Direct service · Morocco · 24 / 7";
     translations.ar.heroStamp = "خدمة مباشرة · المغرب · 24 / 7";
+    Object.assign(translations.fr, {
+      demoNotice: "DÉMONSTRATION PORTFOLIO — marque, flotte et disponibilités présentées à titre d'exemple.",
+      backPortfolio: "Retour au portfolio",
+      instagramCta: "Voir le portfolio",
+      finalText: "Testez le parcours de réservation ou revenez au portfolio pour découvrir le contexte du projet."
+    });
+    Object.assign(translations.en, {
+      demoNotice: "PORTFOLIO DEMO — brand, fleet and availability shown as examples.",
+      backPortfolio: "Back to portfolio",
+      instagramCta: "View portfolio",
+      finalText: "Test the booking journey or return to the portfolio to see the project context."
+    });
+    Object.assign(translations.ar, {
+      demoNotice: "نموذج تجريبي — العلامة والسيارات والتوفر معروضة كمثال.",
+      backPortfolio: "العودة إلى ملف الأعمال",
+      instagramCta: "عرض ملف الأعمال",
+      finalText: "اختبر مسار الحجز أو عد إلى ملف الأعمال للاطلاع على سياق المشروع."
+    });
+    $("#footerInstagram").dataset.i18n = "backPortfolio";
     const t = () => translations[currentLanguage];
-    const waHref = message => `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    const demoPrefixes = {
+      fr: "[DÉMO PORTFOLIO — AUCUNE RÉSERVATION RÉELLE]",
+      en: "[PORTFOLIO DEMO — NO REAL BOOKING]",
+      ar: "[نموذج تجريبي — لا يوجد حجز حقيقي]"
+    };
+    const waHref = message => `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`${demoPrefixes[currentLanguage]}\n\n${message}`)}`;
 
     function applyLanguage(language) {
       currentLanguage = language;

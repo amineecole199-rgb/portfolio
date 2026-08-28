@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Maison Safran — Haute Gastronomie Marocaine, Restaurant Étoilé & Traiteur de Prestige pour Mariages et Réceptions Royales au Maroc." />
-  <meta name="keywords" content="restaurant gastronomique Marrakech, traiteur mariage Maroc, traiteur luxe Casablanca, restaurant marocain haut de gamme, catering luxury Morocco, مطعم مغربي فاخر, ممون حفلات المغرب, تنظيم اعراس مراكش" />
-  <title>Maison Safran — Haute Gastronomie & Traiteur de Prestige</title>
+  <meta name="description" content="Maison Safran — concept fictif de plateforme web pour restaurant et traiteur, réalisé comme démonstration portfolio par Amine ELHAMRI." />
+  <meta name="keywords" content="concept UX restaurant, démonstration portfolio, prototype web gastronomie, simulateur traiteur fictif" />
+  <title>Maison Safran — Concept fictif | Démonstration portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -29,6 +29,7 @@
       --serif: "Playfair Display", Georgia, serif;
       --display: "Cinzel", Georgia, serif;
       --sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+      --demo-notice-height: 44px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -54,6 +55,27 @@
     img { display: block; max-width: 100%; object-fit: cover; }
 
     .shell { width: min(1360px, calc(100% - 48px)); margin-inline: auto; }
+
+    .demo-disclaimer {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 1200;
+      height: var(--demo-notice-height);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 24px;
+      background: #fff4cc;
+      border-bottom: 2px solid #e3a008;
+      color: #3f2b00;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.35;
+      text-align: center;
+      letter-spacing: 0.02em;
+      gap: 18px;
+    }
+    .demo-disclaimer a { padding-bottom: 2px; border-bottom: 1px solid currentColor; white-space: nowrap; }
 
     /* TYPOGRAPHY UTILITIES */
     .font-display { font-family: var(--display); letter-spacing: 0.08em; }
@@ -130,7 +152,7 @@
     /* TOPBAR */
     .topbar {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: var(--demo-notice-height); left: 0; right: 0;
       height: 84px;
       z-index: 1000;
       display: flex;
@@ -253,7 +275,7 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding-top: 100px;
+      padding-top: calc(100px + var(--demo-notice-height));
       padding-bottom: 60px;
       background: #000;
       overflow: hidden;
@@ -917,6 +939,8 @@
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 768px) {
+      :root { --demo-notice-height: 64px; }
+      .demo-disclaimer { padding-inline: 14px; gap: 8px; font-size: 10.5px; }
       .topbar-nav { display: none; }
       .dishes-grid { grid-template-columns: 1fr; }
       .event-type-grid { grid-template-columns: 1fr; }
@@ -927,6 +951,11 @@
   </style>
 </head>
 <body data-whatsapp="212660659645">
+
+  <aside class="demo-disclaimer" role="note" aria-label="Avertissement de démonstration">
+    <span data-i18n="demo_notice"><strong>DÉMONSTRATION PORTFOLIO</strong> — entreprise et données fictives.</span>
+    <a href="../index.html#projets" data-i18n="demo_back">Retour au portfolio ↗</a>
+  </aside>
 
   <!-- TOPBAR -->
   <header class="topbar" id="topbar">
@@ -962,23 +991,23 @@
   <!-- HERO SECTION -->
   <section class="hero" id="top">
     <div class="hero-bg-media">
-      <img src="assets/hero.jpg" alt="Maison Safran — Restaurant Gastronomique Palais" />
+      <img src="assets/hero.jpg" alt="Visuel du concept fictif Maison Safran" />
     </div>
     <div class="hero-gradient"></div>
 
     <div class="shell hero-content">
-      <div class="kicker" data-i18n="hero_kicker">Marrakech · Casablanca · Rabat</div>
+      <div class="kicker" data-i18n="hero_kicker">Concept fictif · Démonstration UX</div>
       <h1>
         <span data-i18n="hero_title_1">L'art du festin marocain,</span>
         <em class="gold-gradient-text" data-i18n="hero_title_2">élevé à son apogée.</em>
       </h1>
       <p class="hero-desc" data-i18n="hero_desc">
-        Une signature culinaire où le raffinement des palais impériaux rencontre l'audace contemporaine. Savourez nos tables d'exception ou concevez votre événement traiteur sur-mesure.
+        Prototype de plateforme pour restaurant et traiteur : carte interactive, simulation de devis et parcours de réservation. Aucune entreprise réelle n'est représentée.
       </p>
 
       <div class="hero-btns">
         <button class="btn-gold" id="heroReserveBtn">
-          <span data-i18n="hero_btn_book">Réserver Votre Table</span>
+          <span data-i18n="hero_btn_book">Tester la réservation</span>
           <span>↗</span>
         </button>
         <a href="#simulateur" class="btn-outline-gold">
@@ -991,22 +1020,22 @@
         <div class="hero-badge-item">
           <span class="hero-badge-icon">⭐</span>
           <div>
-            <div class="hero-badge-title" data-i18n="badge_1_t">4.9 / 5 Guide Palace</div>
-            <div class="hero-badge-sub" data-i18n="badge_1_s">+350 Avis d'Excellence</div>
+            <div class="hero-badge-title" data-i18n="badge_1_t">Prototype UX trilingue</div>
+            <div class="hero-badge-sub" data-i18n="badge_1_s">Français · English · العربية</div>
           </div>
         </div>
         <div class="hero-badge-item">
           <span class="hero-badge-icon">🏺</span>
           <div>
-            <div class="hero-badge-title" data-i18n="badge_2_t">Safran AOP Certifié</div>
-            <div class="hero-badge-sub" data-i18n="badge_2_s">Terroir Pur Taliouine</div>
+            <div class="hero-badge-title" data-i18n="badge_2_t">Simulateur interactif</div>
+            <div class="hero-badge-sub" data-i18n="badge_2_s">Tarifs et données fictifs</div>
           </div>
         </div>
         <div class="hero-badge-item">
           <span class="hero-badge-icon">👑</span>
           <div>
-            <div class="hero-badge-title" data-i18n="badge_3_t">+120 Mariages Royaux</div>
-            <div class="hero-badge-sub" data-i18n="badge_3_s">Service Traiteur d'Élite</div>
+            <div class="hero-badge-title" data-i18n="badge_3_t">Parcours WhatsApp</div>
+            <div class="hero-badge-sub" data-i18n="badge_3_s">Aucune réservation réelle</div>
           </div>
         </div>
       </div>
@@ -1041,9 +1070,9 @@
 
         <div class="pillar-card">
           <div class="pillar-no">03.</div>
-          <h3 class="pillar-title" data-i18n="p3_t">L'Art de Recevoir Impérial</h3>
+          <h3 class="pillar-title" data-i18n="p3_t">Une Expérience Premium Simulée</h3>
           <p class="pillar-desc" data-i18n="p3_d">
-            De la vaisselle ciselée en argent et céramique émaillée aux maîtres d'hôtel formés aux standards des palaces : une hospitalité légendaire.
+            Une direction artistique inspirée des codes de l'hospitalité haut de gamme, conçue uniquement pour illustrer ce prototype.
           </p>
         </div>
       </div>
@@ -1297,12 +1326,12 @@
           </div>
 
           <button class="btn-gold" id="sendQuoteWhatsAppBtn" style="width: 100%;">
-            <span data-i18n="btn_wa_quote">Demander ce Devis sur WhatsApp</span>
+            <span data-i18n="btn_wa_quote">Tester le CTA WhatsApp</span>
             <span>↗</span>
           </button>
           
           <p style="text-align: center; font-size: 11px; color: var(--text-muted); margin-top: 14px;" data-i18n="quote_note">
-            Réponse garantie sous 2h par le Directeur Commercial. Dégustation préalable offerte pour toute réservation de plus de 80 personnes.
+            Simulation portfolio : estimation et délais fictifs. Ce bouton ne réalise aucune réservation réelle.
           </p>
         </div>
       </div>
@@ -1392,42 +1421,40 @@
           </div>
         </div>
         <p style="font-size: 13px; color: var(--text-muted); max-width: 340px; line-height: 1.7;" data-i18n="foot_about">
-          Une institution culinaire marocaine dédiée à l'art de recevoir et à la mémoire vivante des grandes traditions royales.
+          Concept fictif créé pour démontrer la conception d'une expérience web de restauration et de traiteur.
         </p>
       </div>
 
       <div>
         <div class="footer-title" data-i18n="foot_h_rest">Restaurant</div>
         <div class="footer-links">
-          <span>Marrakech : Hivernage Palace</span>
-          <span>Casablanca : Triangle d'Or</span>
-          <span>Service continu 12h00 - 00h30</span>
-          <span>Valet de parking privé</span>
+          <span>Concept sans adresse physique</span>
+          <span>Aucun établissement réel</span>
+          <span>Horaires et services simulés</span>
         </div>
       </div>
 
       <div>
         <div class="footer-title" data-i18n="foot_h_cater">Traiteur & Événements</div>
         <div class="footer-links">
-          <span>Mariages au Maroc & International</span>
-          <span>Banquets Corporate & Sommets</span>
-          <span>Dîners Privés en Résidence</span>
-          <span>Dégustation sur Rendez-vous</span>
+          <span>Parcours de démonstration</span>
+          <span>Formules et tarifs fictifs</span>
+          <span>Aucune prestation commerciale</span>
         </div>
       </div>
 
       <div>
         <div class="footer-title" data-i18n="foot_h_concierge">Conciergerie</div>
         <div class="footer-links">
-          <span>WhatsApp : +212 6 60 65 96 45</span>
-          <span>contact@maisonsafran.ma</span>
-          <span>Service VIP 7j/7</span>
+          <span>CTA WhatsApp de démonstration</span>
+          <span>Aucun email commercial</span>
+          <span>Aucune réservation réelle</span>
         </div>
       </div>
     </div>
 
     <div class="shell footer-bottom">
-      <div>© 2026 Maison Safran. Réalisation Démo Portfolio — Amine ELHAMRI.</div>
+      <div>© 2026 Concept fictif Maison Safran — Démonstration portfolio par Amine ELHAMRI.</div>
       <div style="color: var(--gold);" data-i18n="foot_rights">Excellence · Terroir · Hospitalité</div>
     </div>
   </footer>
@@ -1449,24 +1476,25 @@
     let currentLang = "fr";
     const translations = {
       fr: {
-        brand_sub: "Haute Gastronomie & Traiteur",
+        demo_notice: "<strong>CONCEPT / DÉMONSTRATION PORTFOLIO</strong> — Entreprise, avis, chiffres, adresses et données fictifs. Aucun client ni établissement réel n'est représenté.",
+        brand_sub: "Concept fictif • Démo portfolio",
         nav_experience: "L'Expérience",
         nav_carte: "La Carte",
         nav_traiteur: "Traiteur & Banquets",
         nav_contact: "Contact",
-        btn_reserve_table: "Réserver une Table",
-        hero_kicker: "Marrakech · Casablanca · Rabat",
+        btn_reserve_table: "Tester le parcours",
+        hero_kicker: "Concept fictif · Démonstration UX",
         hero_title_1: "L'art du festin marocain,",
         hero_title_2: "élevé à son apogée.",
-        hero_desc: "Une signature culinaire où le raffinement des palais impériaux rencontre l'audace contemporaine. Savourez nos tables d'exception ou concevez votre événement traiteur sur-mesure.",
-        hero_btn_book: "Réserver Votre Table",
+        hero_desc: "Prototype de plateforme pour restaurant et traiteur : carte interactive, simulation de devis et parcours de réservation. Aucune entreprise réelle n'est représentée.",
+        hero_btn_book: "Tester la réservation",
         hero_btn_sim: "Simuler un Événement Traiteur",
-        badge_1_t: "4.9 / 5 Guide Palace",
-        badge_1_s: "+350 Avis d'Excellence",
-        badge_2_t: "Safran AOP Certifié",
-        badge_2_s: "Terroir Pur Taliouine",
-        badge_3_t: "+120 Mariages Royaux",
-        badge_3_s: "Service Traiteur d'Élite",
+        badge_1_t: "Prototype UX trilingue",
+        badge_1_s: "Français · English · العربية",
+        badge_2_t: "Simulateur interactif",
+        badge_2_s: "Tarifs et données fictifs",
+        badge_3_t: "Parcours WhatsApp",
+        badge_3_s: "Aucune réservation réelle",
         pillars_kicker: "L'Héritage & L'Excellence",
         pillars_title: "Une quête absolue de perfection sensorielle",
         pillars_sub: "Chaque mets raconte l'histoire d'un terroir noble, travaillé avec la rigueur de la haute gastronomie internationale.",
@@ -1474,8 +1502,8 @@
         p1_d: "Sélection intransigeante : safran de Taliouine cueilli à l'aube, huile d'argan pressée à froid de Taroudant et pêche côtière sauvage d'Essaouira.",
         p2_t: "Cuisine d'Auteur Réinventée",
         p2_d: "Les cuissons lentes au feu de braise et les réductions au miel sauvage rencontrent les techniques de dressage et la légèreté des grandes tables étoilées.",
-        p3_t: "L'Art de Recevoir Impérial",
-        p3_d: "De la vaisselle ciselée en argent et céramique émaillée aux maîtres d'hôtel formés aux standards des palaces : une hospitalité légendaire.",
+        p3_t: "Une Expérience Premium Simulée",
+        p3_d: "Une direction artistique inspirée des codes de l'hospitalité haut de gamme, conçue uniquement pour illustrer ce prototype.",
         menu_kicker: "Collection Gastronomique",
         menu_title: "Les Créations Signatures du Chef",
         menu_sub: "Une invitation au voyage à travers nos assiettes emblématiques, disponibles au restaurant et pour vos banquets privés.",
@@ -1525,43 +1553,44 @@
         qr_pkg: "Formule choisie :",
         qr_options: "Options incluses :",
         qt_label: "Montant Total Estimé",
-        quote_note: "Réponse garantie sous 2h par le Directeur Commercial. Dégustation préalable offerte pour toute réservation de plus de 80 personnes.",
-        btn_wa_quote: "Demander ce Devis sur WhatsApp",
-        mod_kicker: "Réservation Directe",
-        mod_title: "Votre Table d'Exception",
-        mod_sub: "Confirmation instantanée par notre maître d'hôtel sur WhatsApp.",
+        quote_note: "Simulation portfolio : estimation et délais fictifs. Ce bouton ne réalise aucune réservation réelle.",
+        btn_wa_quote: "Tester le CTA WhatsApp",
+        mod_kicker: "Simulation de réservation",
+        mod_title: "Tester le parcours de table",
+        mod_sub: "Les informations saisies servent uniquement à générer un message WhatsApp de démonstration.",
         mod_name: "Nom & Prénom",
         mod_date: "Date",
         mod_guests: "Nombre de Convives",
         mod_service: "Service Souhaité",
         mod_area: "Atmosphère Préférée",
         mod_notes: "Demandes Particulières (Optionnel)",
-        mod_btn_submit: "Confirmer la Réservation sur WhatsApp",
-        foot_about: "Une institution culinaire marocaine dédiée à l'art de recevoir et à la mémoire vivante des grandes traditions royales.",
+        mod_btn_submit: "Générer le message de démo",
+        foot_about: "Concept fictif créé pour démontrer la conception d'une expérience web de restauration et de traiteur.",
         foot_h_rest: "Restaurant",
         foot_h_cater: "Traiteur & Événements",
         foot_h_concierge: "Conciergerie",
         foot_rights: "Excellence · Terroir · Hospitalité"
       },
       en: {
-        brand_sub: "Fine Dining & Luxury Catering",
+        demo_notice: "<strong>PORTFOLIO CONCEPT / DEMONSTRATION</strong> — Fictional company, reviews, figures, addresses and data. No real client or venue is represented.",
+        brand_sub: "Fictional concept • Portfolio demo",
         nav_experience: "Experience",
         nav_carte: "The Menu",
         nav_traiteur: "Catering & Galas",
         nav_contact: "Contact",
-        btn_reserve_table: "Book a Table",
-        hero_kicker: "Marrakech · Casablanca · Rabat",
+        btn_reserve_table: "Test the flow",
+        hero_kicker: "Fictional concept · UX demonstration",
         hero_title_1: "The art of Moroccan feast,",
         hero_title_2: "elevated to its pinnacle.",
-        hero_desc: "A culinary signature where the sophistication of imperial palaces meets contemporary mastery. Savor our signature tables or craft your bespoke catering event.",
-        hero_btn_book: "Reserve Your Table",
+        hero_desc: "Restaurant and catering platform prototype featuring an interactive menu, quote simulator and booking flow. No real business is represented.",
+        hero_btn_book: "Test booking flow",
         hero_btn_sim: "Simulate Catering Event",
-        badge_1_t: "4.9 / 5 Luxury Guide",
-        badge_1_s: "+350 Outstanding Reviews",
-        badge_2_t: "Certified AOP Saffron",
-        badge_2_s: "Pure Taliouine Terroir",
-        badge_3_t: "+120 Royal Weddings",
-        badge_3_s: "Elite Catering Service",
+        badge_1_t: "Trilingual UX prototype",
+        badge_1_s: "Français · English · العربية",
+        badge_2_t: "Interactive simulator",
+        badge_2_s: "Fictional prices and data",
+        badge_3_t: "WhatsApp journey",
+        badge_3_s: "No real booking",
         pillars_kicker: "Heritage & Excellence",
         pillars_title: "An absolute quest for sensory perfection",
         pillars_sub: "Each culinary masterpiece tells the story of noble heritage, prepared with Michelin-grade standards.",
@@ -1569,8 +1598,8 @@
         p1_d: "Dawn-harvested Taliouine saffron, cold-pressed Taroudant pure argan oil and wild Atlantic seafood from Essaouira.",
         p2_t: "Reinvented Signature Cuisine",
         p2_d: "Slow woodfire braising and wild mountain honey reductions paired with modern artistic plating.",
-        p3_t: "Imperial Hospitality",
-        p3_d: "From engraved silver tableware and hand-glazed ceramics to palace-trained maître d'hôtels.",
+        p3_t: "Simulated Premium Experience",
+        p3_d: "Art direction inspired by premium hospitality codes, created solely to illustrate this prototype.",
         menu_kicker: "Gastronomic Collection",
         menu_title: "The Chef's Signature Masterpieces",
         menu_sub: "An invitation to journey through our iconic dishes, served at the restaurant and for private banquets.",
@@ -1620,43 +1649,44 @@
         qr_pkg: "Selected Menu:",
         qr_options: "Included Add-ons:",
         qt_label: "Estimated Total Amount",
-        quote_note: "Guaranteed 2h response by our Event Director. Complimentary tasting session offered for bookings of 80+ guests.",
-        btn_wa_quote: "Request This Quote on WhatsApp",
-        mod_kicker: "Direct Table Booking",
-        mod_title: "Your Table of Excellence",
-        mod_sub: "Instant confirmation by our concierge on WhatsApp.",
+        quote_note: "Portfolio simulation: estimates and response times are fictional. This button does not create a real booking.",
+        btn_wa_quote: "Test WhatsApp CTA",
+        mod_kicker: "Booking simulation",
+        mod_title: "Test the table-booking flow",
+        mod_sub: "Submitted information is used only to generate a demonstration WhatsApp message.",
         mod_name: "Full Name",
         mod_date: "Date",
         mod_guests: "Number of Guests",
         mod_service: "Preferred Time",
         mod_area: "Preferred Seating",
         mod_notes: "Special Requests (Optional)",
-        mod_btn_submit: "Confirm Reservation on WhatsApp",
-        foot_about: "A Moroccan culinary landmark dedicated to the art of hosting and the living memory of imperial traditions.",
+        mod_btn_submit: "Generate demo message",
+        foot_about: "A fictional concept created to demonstrate the design of a restaurant and catering web experience.",
         foot_h_rest: "Restaurant",
         foot_h_cater: "Catering & Galas",
         foot_h_concierge: "VIP Concierge",
         foot_rights: "Excellence · Terroir · Hospitality"
       },
       ar: {
-        brand_sub: "فن الطهي المغربي الراقي وتنظيم الحفلات",
+        demo_notice: "<strong>نموذج تجريبي لملف الأعمال</strong> — الشركة والتقييمات والأرقام والعناوين والبيانات خيالية، ولا تمثل أي عميل أو مؤسسة حقيقية.",
+        brand_sub: "مفهوم خيالي • نموذج تجريبي",
         nav_experience: "التجربة",
         nav_carte: "قائمة الطعام",
         nav_traiteur: "تنظيم الحفلات والأعراس",
         nav_contact: "اتصل بنا",
-        btn_reserve_table: "حجز طاولة",
-        hero_kicker: "مراكش · الدار البيضاء · الرباط",
+        btn_reserve_table: "تجربة المسار",
+        hero_kicker: "مفهوم خيالي · تجربة واجهة",
         hero_title_1: "فخامة الضيافة المغربية،",
         hero_title_2: "في أسمى تجلياتها.",
-        hero_desc: "توقيع مميز في الطبخ المغربي يجمع بين عراقة القصور الملكية والابتكار العصري. استمتع بأرقى الأطباق أو صمم مناسبتك مع خدمة تنظيم الحفلات الفاخرة.",
-        hero_btn_book: "احجز طاولتك الآن",
+        hero_desc: "نموذج لمنصة مطعم وتموين يضم قائمة تفاعلية ومحاكي أسعار ومسار حجز. لا يمثل أي شركة حقيقية.",
+        hero_btn_book: "تجربة مسار الحجز",
         hero_btn_sim: "محاكي تكلفة الحفلات والأعراس",
-        badge_1_t: "4.9 / 5 دليل القصور",
-        badge_1_s: "+350 تقييم امتياز",
-        badge_2_t: "زعفران تاليوين الأصيل",
-        badge_2_s: "جودة معتمدة ممتازة",
-        badge_3_t: "+120 عرس ملكي",
-        badge_3_s: "خدمة تموين النخبة",
+        badge_1_t: "نموذج بثلاث لغات",
+        badge_1_s: "العربية · Français · English",
+        badge_2_t: "محاكي تفاعلي",
+        badge_2_s: "أسعار وبيانات خيالية",
+        badge_3_t: "مسار واتساب تجريبي",
+        badge_3_s: "لا يوجد حجز حقيقي",
         pillars_kicker: "الأصالة والامتياز",
         pillars_title: "سعي دائم نحو الكمال في الذوق والضيافة",
         pillars_sub: "كل طبق يحكي قصة التراث المغربي العريق مع معايير الطهي العالمية الرفيعة.",
@@ -1664,8 +1694,8 @@
         p1_d: "زعفران تاليوين المقطوف فجراً، زيت أركان تارودانت الصافي والسمك الطازج من سواحل الصويرة.",
         p2_t: "إبداع وتجديد في الطهي",
         p2_d: "طهي بطيء على الفحم مع عسل السدر والزعفران ولمسة تقديم عصرية راقية.",
-        p3_t: "كرم الضيافة الملكية",
-        p3_d: "أواني فضية منقوشة وخزف فاخر مع طاقم خدمة مدرب على أعلى معايير القصور.",
+        p3_t: "تجربة راقية تجريبية",
+        p3_d: "تصميم بصري مستوحى من الضيافة الراقية، أُنشئ فقط لعرض هذا النموذج التجريبي.",
         menu_kicker: "مجموعة الأطباق الفاخرة",
         menu_title: "إبداعات الشيف المميزة",
         menu_sub: "دعوة لرحلة ذوقية فريدة عبر أطباقنا الرمزية في المطعم وحفلاتكم الخاصة.",
@@ -1687,7 +1717,7 @@
         sim_title: "محاكي تكلفة الأعراس والحفلات الفاخرة",
         sim_sub: "اختر تفاصيل مناسبتك مباشرة واحصل على تقدير فوري مع تواصل مباشر عبر واتساب.",
         sim_step1: "نوع المناسبة",
-        ev_wedding: "عرس ملكي فاخر",
+        ev_wedding: "حفل زفاف فاخر",
         ev_wedding_d: "حفل زفاف أسطوري متكامل",
         ev_gala: "حفل شركات رسمي",
         ev_gala_d: "كوكتيل واستقبال كبار الشخصيات",
@@ -1715,25 +1745,38 @@
         qr_pkg: "الباقة المختارة:",
         qr_options: "الخدمات الإضافية:",
         qt_label: "المبلغ التقديري الإجمالي",
-        quote_note: "رد مضمون خلال ساعتين من الإدارة التجارية. جلسة تذوق مجانية للحجوزات لأكثر من 80 شخص.",
-        btn_wa_quote: "طلب هذا العرض عبر واتساب",
-        mod_kicker: "حجز مباشر",
-        mod_title: "احجز طاولتك الفاخرة",
-        mod_sub: "تأكيد فوري من مسؤول الحجوزات عبر واتساب.",
+        quote_note: "محاكاة لملف الأعمال: الأسعار والمهل خيالية، وهذا الزر لا ينشئ أي حجز حقيقي.",
+        btn_wa_quote: "تجربة زر واتساب",
+        mod_kicker: "محاكاة الحجز",
+        mod_title: "تجربة مسار حجز الطاولة",
+        mod_sub: "تُستخدم البيانات فقط لإنشاء رسالة واتساب تجريبية.",
         mod_name: "الاسم الكامل",
         mod_date: "التاريخ",
         mod_guests: "عدد الضيوف",
         mod_service: "الفترة المطلوبة",
         mod_area: "المكان المفضل",
         mod_notes: "ملاحظات خاصة (اختياري)",
-        mod_btn_submit: "تأكيد الحجز عبر واتساب",
-        foot_about: "مؤسسة طهي مغربية فاخرة مكرسة لفن الضيافة والذاكرة الحية للتقاليد الملكية العريقة.",
+        mod_btn_submit: "إنشاء رسالة تجريبية",
+        foot_about: "مفهوم خيالي صُمم لعرض تجربة ويب لمطعم وخدمة تموين.",
         foot_h_rest: "المطعم",
         foot_h_cater: "تنظيم الحفلات والأعراس",
         foot_h_concierge: "خدمة كبار الشخصيات",
         foot_rights: "الامتياز · الأصالة · الضيافة"
       }
     };
+
+    Object.assign(translations.fr, {
+      demo_notice: "<strong>DÉMONSTRATION PORTFOLIO</strong> — entreprise et données fictives.",
+      demo_back: "Retour au portfolio ↗"
+    });
+    Object.assign(translations.en, {
+      demo_notice: "<strong>PORTFOLIO DEMONSTRATION</strong> — fictional company and data.",
+      demo_back: "Back to portfolio ↗"
+    });
+    Object.assign(translations.ar, {
+      demo_notice: "<strong>نموذج تجريبي لملف الأعمال</strong> — الشركة والبيانات خيالية.",
+      demo_back: "العودة إلى ملف الأعمال ↗"
+    });
 
     function applyLanguage(lang) {
       currentLang = lang;
@@ -1758,8 +1801,8 @@
 
     function updateFloatingWa() {
       const msg = currentLang === "ar" 
-        ? "السلام عليكم ميزون زعفران، أرغب في الاستفسار عن حجز طاولة أو خدمات تنظيم الحفلات."
-        : "Bonjour Maison Safran, je souhaite me renseigner sur une réservation de table ou un événement traiteur.";
+        ? "[نموذج تجريبي — لا يوجد حجز حقيقي] أختبر زر واتساب في مفهوم Maison Safran الخيالي."
+        : "[DÉMO PORTFOLIO — AUCUNE RÉSERVATION RÉELLE] Je teste le CTA WhatsApp du concept fictif Maison Safran.";
       $("#floatingWaLink").href = waLink(msg);
     }
 
@@ -1861,7 +1904,8 @@
 
       // Update WhatsApp Message link
       const waMsg = isAr
-        ? `السلام عليكم ميزون زعفران، أرغب في طلب هذا العرض المخصص لتنظيم حفل:
+        ? `[نموذج تجريبي — لا يوجد طلب أو حجز حقيقي]
+أختبر محاكي Maison Safran بهذه البيانات الخيالية:
 
 👑 نوع المناسبة: ${simState.eventType}
 👥 عدد الضيوف: ${simState.guests} ضيف
@@ -1869,8 +1913,9 @@
 ✨ الخدمات الإضافية: ${simState.addons.map(a => a.name).join(', ') || 'بدون إضافات'}
 💰 الميزانية التقديرية: ${total.toLocaleString()} درهم
 
-يرجى تأكيد التوفر وموافاتي بعقد المقترح المالي الكامل. شكراً.`
-        : `Bonjour Maison Safran, je souhaite recevoir une proposition pour cette estimation traiteur :
+هذه الرسالة لا تنشئ أي طلب تجاري.`
+        : `[DÉMO PORTFOLIO — AUCUN DEVIS NI RÉSERVATION RÉELLE]
+Je teste le simulateur du concept fictif Maison Safran avec ces données :
 
 👑 Événement : ${simState.eventType}
 👥 Nombre de convives : ${simState.guests} personnes
@@ -1878,7 +1923,7 @@
 ✨ Options incluses : ${simState.addons.map(a => a.name).join(', ') || 'Aucune'}
 💰 Total estimé : ${total.toLocaleString('fr-FR')} MAD
 
-Pouvez-vous me recontacter pour planifier une dégustation et valider la date ? Merci.`;
+Ce message ne crée aucune demande commerciale.`;
 
       $("#sendQuoteWhatsAppBtn").onclick = () => {
         window.open(waLink(waMsg), "_blank", "noopener");
@@ -1919,7 +1964,8 @@ Pouvez-vous me recontacter pour planifier une dégustation et valider la date ? 
 
       const isAr = currentLang === "ar";
       const msg = isAr
-        ? `السلام عليكم ميزون زعفران، أرغب في تأكيد حجز طاولة:
+        ? `[نموذج تجريبي — لا يوجد حجز حقيقي]
+اختبار مسار الحجز الخيالي Maison Safran:
 
 👤 الاسم: ${name}
 📅 التاريخ: ${date}
@@ -1928,8 +1974,9 @@ Pouvez-vous me recontacter pour planifier une dégustation et valider la date ? 
 📍 الجلسة المفضلة: ${area}
 📝 ملاحظات: ${notes || 'لا توجد'}
 
-يرجى تأكيد الحجز. شكراً.`
-        : `Bonjour Maison Safran, je souhaite effectuer cette demande de réservation de table :
+هذه الرسالة لا تنشئ أي حجز.`
+        : `[DÉMO PORTFOLIO — AUCUNE RÉSERVATION RÉELLE]
+Test du parcours de réservation fictif Maison Safran :
 
 👤 Nom : ${name}
 📅 Date : ${date}
@@ -1938,7 +1985,7 @@ Pouvez-vous me recontacter pour planifier une dégustation et valider la date ? 
 📍 Espace souhaité : ${area}
 📝 Remarques : ${notes || 'Aucune'}
 
-Pouvez-vous me confirmer la disponibilité ? Merci.`;
+Ce message ne crée aucune réservation.`;
 
       window.open(waLink(msg), "_blank", "noopener");
       closeReservationModal();
